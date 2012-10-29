@@ -248,7 +248,7 @@ public class GoogleChartGenerator implements StatisticsChartGenerator {
         for (GroupedTimingStatistics groupedTimingStatistics : data) {
             Map<String, TimingStatistics> statsByTag = groupedTimingStatistics.getStatisticsByTag();
             long windowStartTime = groupedTimingStatistics.getStartTime();
-            long windowLength = groupedTimingStatistics.getStopTime() - windowStartTime;
+            long windowLength = groupedTimingStatistics.getWindowLength();
             //keep track of the min/max time value, this is needed for scaling the chart parameters
             minTimeValue = Math.min(minTimeValue, windowStartTime);
             maxTimeValue = Math.max(maxTimeValue, windowStartTime);
