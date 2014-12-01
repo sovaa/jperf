@@ -3,7 +3,7 @@
 
     <groupId>com.github.sovaa</groupId>
     <artifactId>jperf</artifactId>
-    <version>0.9.18</version>
+    <version>0.9.19</version>
     <packaging>jar</packaging>
 
     <name>JPerf</name>
@@ -19,6 +19,12 @@
             <comments>A business-friendly OSS license</comments>
         </license>
     </licenses>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
 
     <organization>
         <name>jperf</name>
@@ -44,12 +50,12 @@
     </developers>
 
     <scm>
-        <url>http://github.com/sovaa/jperf</url>
-        <connection>scm:git:git://github.com/sovaa/jperf.git</connection>
+        <url>git@github.com:sovaa/jperf</url>
+        <connection>scm:git:git@github.com/sovaa/jperf.git</connection>
         <developerConnection>scm:git:git://github.com/sovaa/jperf.git</developerConnection>
     </scm>
 
-    <repositories>
+    <!--repositories>
         <repository>
             <id>Apache iBiblio Mirror</id>
             <url>http://people.apache.org/repo/m2-ibiblio-rsync-repository/</url>
@@ -70,9 +76,9 @@
             <id>java.net</id>
             <url>http://download.java.net/maven/2/</url>
         </repository>
-    </repositories>
+    </repositories-->
 
-    <pluginRepositories>
+    <!--pluginRepositories>
         <pluginRepository>
             <id>Codehaus</id>
             <url>http://repository.codehaus.org/</url>
@@ -93,12 +99,12 @@
             <id>maven snapshots</id>
             <url>http://people.apache.org/repo/m2-snapshot-repository/</url>
         </pluginRepository>
-    </pluginRepositories>
+    </pluginRepositories-->
 
     <properties>
         <!-- this property is used by the apt files in src/site/apt -->
-        <currentProductionVersion>0.9.18</currentProductionVersion>
-        <currentSnapshotVersion>0.9.19-SNAPSHOT</currentSnapshotVersion>
+        <currentProductionVersion>0.9.19</currentProductionVersion>
+        <currentSnapshotVersion>0.9.20-SNAPSHOT</currentSnapshotVersion>
         <git.executable>git</git.executable>
         <aspectjVersion>1.6.11</aspectjVersion>
     </properties>
@@ -285,7 +291,7 @@
 
     <build>
         <plugins>
-            <!-- Tell Maven to compile for Java 1.5 -->
+            <!-- Tell Maven to compile for Java 1.6 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -540,6 +546,35 @@
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.0</version>
             </plugin>
+
+            <!-- sign built artifacts -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- for deploying and making releases on OSSRH -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.3</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
         </plugins>
 
         <extensions>
@@ -549,7 +584,6 @@
                 <version>1.0-beta-2</version>
             </extension>
         </extensions>
-
     </build>
 
     <reporting>
@@ -596,7 +630,7 @@
         </plugins>
     </reporting>
 
-    <distributionManagement>
+    <!--distributionManagement>
         <repository>
             <id>codehaus.org</id>
             <name>jperf Repository</name>
@@ -615,5 +649,5 @@
         <downloadUrl>
             http://repository.codehaus.org/org/jperf/jperf/
         </downloadUrl>
-    </distributionManagement>
+    </distributionManagement-->
 </project>

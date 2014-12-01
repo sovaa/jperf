@@ -35,7 +35,7 @@ public class GoogleChartGeneratorTest extends TestCase {
     protected void setUp() throws Exception {
         GroupedTimingStatistics.setTimeZone(TimeZone.getTimeZone("GMT-6")); //results originally generated in GMT-6 zone
 
-        expectedChartUrls = ResourceBundle.getBundle("org/perf4j/chart/googleChartTestExpectedValues");
+        expectedChartUrls = ResourceBundle.getBundle("org/jperf/chart/googleChartTestExpectedValues");
     }
 
     protected void tearDown() throws Exception {
