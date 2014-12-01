@@ -226,10 +226,12 @@ public class AgnosticTimingAspect {
             jexlContext.getVars().put("$" + i, args[i]);
         }
 
+        Class<?> declaringClass = joinPoint.getDeclaringClass();
         jexlContext.getVars().put("$methodName", joinPoint.getMethodName());
         jexlContext.getVars().put("$this", joinPoint.getExecutingObject());
-        jexlContext.getVars().put("$class", joinPoint.getDeclaringClass().getName());
-        jexlContext.getVars().put("$classSimpleName", joinPoint.getDeclaringClass().getSimpleName());
+        jexlContext.getVars().put("$class", declaringClass);
+        jexlContext.getVars().put("$className", declaringClass.getName());
+        jexlContext.getVars().put("$classSimpleName", declaringClass.getSimpleName());
         jexlContext.getVars().put("$return", returnValue);
         jexlContext.getVars().put("$exception", exceptionThrown);
 

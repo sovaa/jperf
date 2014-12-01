@@ -62,8 +62,15 @@ public class AgnosticTimingAspectTest {
     }
 
     @Test
-    public void testClassJexlExpansion() {
-        String text = "{$class}";
+    public void testClassDotNameJexlExpansion() {
+        String text = "{$class.name}";
+        String evaluated  = evaluate(text);
+        assertEquals(className, evaluated);
+    }
+
+    @Test
+    public void testClassNameJexlExpansion() {
+        String text = "{$className}";
         String evaluated  = evaluate(text);
         assertEquals(className, evaluated);
     }
