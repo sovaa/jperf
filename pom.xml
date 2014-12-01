@@ -3,7 +3,7 @@
 
     <groupId>com.github.sovaa</groupId>
     <artifactId>jperf</artifactId>
-    <version>0.9.17</version>
+    <version>0.9.18-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>JPerf</name>
