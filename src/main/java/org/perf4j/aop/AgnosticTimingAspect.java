@@ -127,26 +127,17 @@ public class AgnosticTimingAspect {
         if (profiled.message().length() == 0) {
             // look for properties-based default
             // if the message name is not explicitly set on the Profiled annotation,
-            final StringBuilder sb = new StringBuilder("message.").append(joinPoint.getDeclaringClass().getName())
-                    .append('.').append(joinPoint.getMethodName());
-            message = Perf4jProperties.INSTANCE.getProperty(sb.toString());
+            String property = String.format("message.%s.%s", joinPoint.getDeclaringClass().getName(), joinPoint.getMethodName());
+            message = Perf4jProperties.INSTANCE.getProperty(property);
 
             if (message == null) {
-                // may be null, that's OK
-                return message;
-            } else {
-                if (message.indexOf("{") >= 0) {
-                    message = evaluateJexl(message,
-                            joinPoint,
-                            returnValue,
-                            exceptionThrown);
-                }
+                return null;
             }
-        } else if (profiled.el() && profiled.message().indexOf("{") >= 0) {
-            message = evaluateJexl(profiled.message(),
-                                   joinPoint,
-                                   returnValue,
-                                   exceptionThrown);
+            if (message.contains("{")) {
+                message = evaluateJexl(message, joinPoint, returnValue, exceptionThrown);
+            }
+        } else if (profiled.el() && profiled.message().contains("{")) {
+            message = evaluateJexl(profiled.message(), joinPoint, returnValue, exceptionThrown);
             if ("".equals(message)) {
                 message = null;
             }
