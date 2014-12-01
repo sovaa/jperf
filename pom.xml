@@ -2,13 +2,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.sovaa</groupId>
-    <artifactId>perf4j</artifactId>
+    <artifactId>jperf</artifactId>
     <version>0.9.17</version>
     <packaging>jar</packaging>
 
-    <name>Perf4J</name>
+    <name>JPerf</name>
     <description>Performance statistics logging and monitoring toolkit extension to log4j, logback and the java.util.logging framework.</description>
-    <url>http://www.perf4j.org</url>
+    <url>http://github.com/sovaa/jperf</url>
     <inceptionYear>2008</inceptionYear>
 
     <licenses>
@@ -21,127 +21,32 @@
     </licenses>
 
     <organization>
-        <name>perf4j.org</name>
-        <url>http://github.com/sovaa/perf4j</url>
+        <name>jperf</name>
+        <url>http://github.com/sovaa/jperf</url>
     </organization>
-
-    <mailingLists>
-        <mailingList>
-            <name>Perf4j Users</name>
-            <post>user@perf4j.codehaus.org</post>
-            <subscribe>http://xircles.codehaus.org/lists/user@perf4j.codehaus.org/subscribe</subscribe>
-            <unsubscribe>http://xircles.codehaus.org/lists/user@perf4j.codehaus.org/unsubscribe</unsubscribe>
-            <archive>http://markmail.org/search/list:org.codehaus.perf4j.user</archive>
-        </mailingList>
-        <mailingList>
-            <name>Perf4j Dev</name>
-            <post>dev@perf4j.codehaus.org</post>
-            <subscribe>http://xircles.codehaus.org/lists/dev@perf4j.codehaus.org/subscribe</subscribe>
-            <unsubscribe>http://xircles.codehaus.org/lists/dev@perf4j.codehaus.org/unsubscribe</unsubscribe>
-            <archive>http://markmail.org/search/list:org.codehaus.perf4j.dev</archive>
-        </mailingList>
-        <mailingList>
-            <name>Perf4j SCM</name>
-            <post>scm@perf4j.codehaus.org</post>
-            <subscribe>http://xircles.codehaus.org/lists/scm@perf4j.codehaus.org/subscribe</subscribe>
-            <unsubscribe>http://xircles.codehaus.org/lists/scm@perf4j.codehaus.org/unsubscribe</unsubscribe>
-            <archive>http://markmail.org/search/list:org.codehaus.perf4j.scm</archive>
-        </mailingList>
-        <mailingList>
-            <name>Perf4j Announce</name>
-            <post>announce@perf4j.codehaus.org</post>
-            <subscribe>http://xircles.codehaus.org/lists/announce@perf4j.codehaus.org/subscribe</subscribe>
-            <unsubscribe>http://xircles.codehaus.org/lists/announce@perf4j.codehaus.org/unsubscribe</unsubscribe>
-            <archive>http://markmail.org/search/list:org.codehaus.perf4j.announce</archive>
-        </mailingList>
-    </mailingLists>
 
     <issueManagement>
         <system>JIRA</system>
-        <url>http://jira.codehaus.org/browse/PERFFORJ</url>
+        <url>http://jira.codehaus.org/browse/JPERF</url>
     </issueManagement>
 
     <developers>
         <developer>
-            <id>adevine</id>
-            <name>Alex Devine</name>
-            <email>adevine@perf4j.org</email>
-            <organization>perf4j.org</organization>
-            <timezone>-6</timezone>
+            <id>scorch</id>
+            <name>Oscar Eriksson</name>
+            <email>oscar.eriks@gmail.com</email>
+            <timezone>+8</timezone>
             <roles>
                 <role>despot</role>
-                <role>developer</role>
-            </roles>
-        </developer>
-        <developer>
-            <id>dchakraborty</id>
-            <name>Doran Chakraborty</name>
-            <email>dchakraborty@perf4j.org</email>
-            <organization>perf4j.org</organization>
-            <timezone>-6</timezone>
-            <roles>
-                <role>developer</role>
-            </roles>
-        </developer>
-        <developer>
-            <id>cberry</id>
-            <name>Chris Berry</name>
-            <email>chris@perf4j.org</email>
-            <organization>perf4j.org</organization>
-            <timezone>-6</timezone>
-            <roles>
-                <role>despot</role>
-                <role>developer</role>
-            </roles>
-        </developer>
-        <developer>
-            <id>bjacob</id>
-            <name>Bryon Jacob</name>
-            <email>bryon@perf4j.org</email>
-            <organization>perf4j.org</organization>
-            <timezone>-6</timezone>
-            <roles>
-                <role>despot</role>
-                <role>developer</role>
-            </roles>
-        </developer>
-        <developer>
-            <id>alexvictoria</id>
-            <name>Alex Victoria</name>
-            <email>alexv@perf4j.org</email>
-            <organization>perf4j.org</organization>
-            <timezone>-6</timezone>
-            <roles>
                 <role>developer</role>
             </roles>
         </developer>
     </developers>
 
-    <contributors>
-        <contributor>
-            <name>Patrick Moore</name>
-            <url>http://www.sworddance.com/blog/</url>
-        </contributor>
-        <contributor>
-            <name>Nicholas Whitehead</name>
-            <url>https://helios.dev.java.net/</url>
-        </contributor>
-        <contributor>
-            <name>Xu Huisheng</name>
-        </contributor>
-        <contributor>
-            <name>Thomas Buckel</name>
-        </contributor>
-        <contributor>
-            <name>Oscar Eriksson</name>
-            <email>oscar.eriks@gmail.com</email>
-        </contributor>
-    </contributors>
-
     <scm>
-        <url>http://github.com/sovaa/perf4j</url>
-        <connection>scm:git:git://github.com/sovaa/perf4j.git</connection>
-        <developerConnection>scm:git:git://github.com/sovaa/perf4j.git</developerConnection>
+        <url>http://github.com/sovaa/jperf</url>
+        <connection>scm:git:git://github.com/sovaa/jperf.git</connection>
+        <developerConnection>scm:git:git://github.com/sovaa/jperf.git</developerConnection>
     </scm>
 
     <repositories>
@@ -244,7 +149,7 @@
     </profiles>
 
     <dependencies>
-        <!-- if you use the log4j implementation of perf4j, you must also include this dependency -->
+        <!-- if you use the log4j implementation of jperf, you must also include this dependency -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -280,7 +185,7 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- If you use the graphing servlets of perf4j, the servlet package should be provided by your container -->
+        <!-- If you use the graphing servlets of jperf, the servlet package should be provided by your container -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -478,10 +383,10 @@
                                 <exec executable="${git.executable}" output="${project.build.directory}/version.properties">
                                     <arg value="log" />
                                     <arg value="-1" />
-                                    <arg value="--pretty=perf4j.revision=%H" />
+                                    <arg value="--pretty=jperf.revision=%H" />
                                 </exec>
                                 <echo file="${project.build.directory}/version.properties" append="true">
-                                    perf4j.version=${project.version}
+                                    jperf.version=${project.version}
                                 </echo>
                                 <fixcrlf srcdir="${project.build.directory}" eol="lf" includes="version.properties" />
                             </tasks>
@@ -514,7 +419,7 @@
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            <mainClass>org.perf4j.LogParser</mainClass>
+                            <mainClass>org.jperf.LogParser</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -629,7 +534,7 @@
                 </configuration>
             </plugin>
 
-            <!-- For the the perf4j site generation, tack the site plugin to 3.0 -->
+            <!-- For the the jperf site generation, tack the site plugin to 3.0 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
@@ -694,21 +599,21 @@
     <distributionManagement>
         <repository>
             <id>codehaus.org</id>
-            <name>Perf4j Repository</name>
-            <url>dav:https://dav.codehaus.org/repository/perf4j/</url>
+            <name>jperf Repository</name>
+            <url>dav:https://dav.codehaus.org/repository/jperf/</url>
         </repository>
         <snapshotRepository>
             <id>codehaus.org</id>
             <uniqueVersion>false</uniqueVersion>
-            <name>Perf4j Snapshot Repository</name>
-            <url>dav:https://dav.codehaus.org/snapshots.repository/perf4j/</url>
+            <name>jperf Snapshot Repository</name>
+            <url>dav:https://dav.codehaus.org/snapshots.repository/jperf/</url>
         </snapshotRepository>
         <site>
             <id>codehaus.org</id>
-            <url>dav:https://dav.codehaus.org/perf4j/</url>
+            <url>dav:https://dav.codehaus.org/jperf/</url>
         </site>
         <downloadUrl>
-            http://repository.codehaus.org/org/perf4j/perf4j/
+            http://repository.codehaus.org/org/jperf/jperf/
         </downloadUrl>
     </distributionManagement>
 </project>
