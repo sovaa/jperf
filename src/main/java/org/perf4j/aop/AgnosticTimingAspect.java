@@ -77,38 +77,30 @@ public class AgnosticTimingAspect {
      *                        completed normally.
      * @return The value to use as the StopWatch tag.
      */
-    protected String getStopWatchTag(Profiled profiled,
-                                     AbstractJoinPoint joinPoint,
-                                     Object returnValue,
-                                     Throwable exceptionThrown) {
+    protected String getStopWatchTag(Profiled profiled, AbstractJoinPoint joinPoint, Object returnValue, Throwable exceptionThrown) {
         String tag;
         if (Profiled.DEFAULT_TAG_NAME.equals(profiled.tag())) {
             // look for properties-based default
             // if the tag name is not explicitly set on the Profiled annotation,
-            final StringBuilder sb = new StringBuilder("tag.").append(joinPoint.getDeclaringClass().getName())
-                    .append('.').append(joinPoint.getMethodName());
-            tag = Perf4jProperties.INSTANCE.getProperty(sb.toString());
+            final String tagString = String.format("tag.%s.%s",
+                    joinPoint.getDeclaringClass().getName(),
+                    joinPoint.getMethodName());
 
-            if (tag == null) {
+            tag = Perf4jProperties.INSTANCE.getProperty(tagString);
+            String defaultTag = Perf4jProperties.INSTANCE.getProperty("defaultTag");
+
+            if (tag == null && defaultTag == null) {
                 // fall back to using the name of the method being annotated.
                 tag = joinPoint.getMethodName();
-            } else if (tag.indexOf("{") >= 0) {
-                tag = evaluateJexl(tag,
-                        joinPoint.getMethodName(),
-                        joinPoint.getParameters(),
-                        joinPoint.getExecutingObject(),
-                        joinPoint.getDeclaringClass(),
-                        returnValue,
-                        exceptionThrown);
             }
-        } else if (profiled.el() && profiled.tag().indexOf("{") >= 0) {
-            tag = evaluateJexl(profiled.tag(),
-                               joinPoint.getMethodName(),
-                               joinPoint.getParameters(),
-                               joinPoint.getExecutingObject(),
-                               joinPoint.getDeclaringClass(),
-                               returnValue,
-                               exceptionThrown);
+            else if (tag != null && tag.contains("{")) {
+                tag = evaluateJexl(tag, joinPoint, returnValue, exceptionThrown);
+            }
+            else if (tag == null) {
+                tag = evaluateJexl(defaultTag, joinPoint, returnValue, exceptionThrown);
+            }
+        } else if (profiled.el() && profiled.tag().contains("{")) {
+            tag = evaluateJexl(profiled.tag(), joinPoint, returnValue, exceptionThrown);
         } else {
             tag = profiled.tag();
         }
@@ -145,20 +137,14 @@ public class AgnosticTimingAspect {
             } else {
                 if (message.indexOf("{") >= 0) {
                     message = evaluateJexl(message,
-                            joinPoint.getMethodName(),
-                            joinPoint.getParameters(),
-                            joinPoint.getExecutingObject(),
-                            joinPoint.getDeclaringClass(),
+                            joinPoint,
                             returnValue,
                             exceptionThrown);
                 }
             }
         } else if (profiled.el() && profiled.message().indexOf("{") >= 0) {
             message = evaluateJexl(profiled.message(),
-                                   joinPoint.getMethodName(),
-                                   joinPoint.getParameters(),
-                                   joinPoint.getExecutingObject(),
-                                   joinPoint.getDeclaringClass(),
+                                   joinPoint,
                                    returnValue,
                                    exceptionThrown);
             if ("".equals(message)) {
@@ -175,11 +161,7 @@ public class AgnosticTimingAspect {
      * JEXL.
      *
      * @param text            The text to be parsed.
-     * @param methodName      The name of the method that was annotated.
-     * @param args            The args that were passed to the method to be profiled.
-     * @param annotatedObject The value of the object whose method was profiled. Will be null if a class method was
-     *                        profiled.
-     * @param annotatedClass  The declaring class of the method that was annotated.
+     * @param joinPoint       The AbstractJoinPoint encapulates the method around which this aspect advice runs.
      * @param returnValue     The value returned from the execution of the profiled method, or null if the method
      *                        returned void or an exception was thrown.
      * @param exceptionThrown The exception thrown, if any, by the profiled method. Will be null if the method
@@ -187,57 +169,80 @@ public class AgnosticTimingAspect {
      * @return The evaluated string.
      * @see Profiled#el()
      */
-    @SuppressWarnings("unchecked")
-	protected String evaluateJexl(String text,
-	                              String methodName,
-                                  Object[] args,
-                                  Object annotatedObject,
-                                  Class<?> annotatedClass,
-                                  Object returnValue,
-                                  Throwable exceptionThrown) {
+	protected String evaluateJexl(String text, AbstractJoinPoint joinPoint, Object returnValue, Throwable exceptionThrown) {
         StringBuilder retVal = new StringBuilder(text.length());
+        JexlContext jexlContext = populateJexlContext(joinPoint, returnValue, exceptionThrown);
+
+        // look for {expression} in the passed in text
+        int bracketIndex;
+        int lastCloseBracketIndex = -1;
+
+        while ((bracketIndex = text.indexOf('{', lastCloseBracketIndex + 1)) >= 0) {
+            appendNonJexlText(retVal, text, bracketIndex, lastCloseBracketIndex);
+            lastCloseBracketIndex = lastCloseBracketIndex(text, bracketIndex);
+            String expressionText = textBetweenBrackets(text, bracketIndex, lastCloseBracketIndex);
+            evaluateJexlAndSetOnResult(retVal, expressionText, jexlContext);
+        }
+
+        appendFinalPart(retVal, text, lastCloseBracketIndex);
+        return retVal.toString();
+    }
+
+    private void appendFinalPart(StringBuilder retVal, String text, int lastCloseBracketIndex) {
+        if (lastCloseBracketIndex < text.length()) {
+            retVal.append(text.substring(lastCloseBracketIndex + 1, text.length()));
+        }
+    }
+
+    private void evaluateJexlAndSetOnResult(StringBuilder retVal, String expressionText, JexlContext jexlContext) {
+        if (expressionText.length() == 0) {
+            return;
+        }
+        try {
+            Object result = getJexlExpression(expressionText).evaluate(jexlContext);
+            retVal.append(result);
+        } catch (Exception e) {
+            //we don't want to propagate exceptions up
+            retVal.append("_EL_ERROR_");
+        }
+    }
+
+    private String textBetweenBrackets(String text, int bracketIndex, int lastCloseBracketIndex) {
+        return text.substring(bracketIndex + 1, lastCloseBracketIndex);
+    }
+
+    private void appendNonJexlText(StringBuilder retVal, String text, int bracketIndex, int lastCloseBracketIndex) {
+        retVal.append(text.substring(lastCloseBracketIndex + 1, bracketIndex));
+    }
+
+    private int lastCloseBracketIndex(String text, int bracketIndex) {
+        int index = text.indexOf('}', bracketIndex + 1);
+        if (index == -1) {
+            //if there wasn't a closing bracket index just go to the end of the string
+            index = text.length();
+        }
+
+        return index;
+    }
+
+    @SuppressWarnings("unchecked")
+    private JexlContext populateJexlContext(AbstractJoinPoint joinPoint, Object returnValue, Throwable exceptionThrown) {
+        Object[] args = joinPoint.getParameters();
 
         //create a JexlContext to be used in all evaluations
         JexlContext jexlContext = new HashMapContext();
         for (int i = 0; i < args.length; i++) {
             jexlContext.getVars().put("$" + i, args[i]);
         }
-        jexlContext.getVars().put("$methodName", methodName);
-        jexlContext.getVars().put("$this", annotatedObject);
-        jexlContext.getVars().put("$class", annotatedClass);
+
+        jexlContext.getVars().put("$methodName", joinPoint.getMethodName());
+        jexlContext.getVars().put("$this", joinPoint.getExecutingObject());
+        jexlContext.getVars().put("$class", joinPoint.getDeclaringClass().getName());
+        jexlContext.getVars().put("$classSimpleName", joinPoint.getDeclaringClass().getSimpleName());
         jexlContext.getVars().put("$return", returnValue);
         jexlContext.getVars().put("$exception", exceptionThrown);
 
-        // look for {expression} in the passed in text
-        int bracketIndex;
-        int lastCloseBracketIndex = -1;
-        while ((bracketIndex = text.indexOf('{', lastCloseBracketIndex + 1)) >= 0) {
-            retVal.append(text.substring(lastCloseBracketIndex + 1, bracketIndex));
-
-            lastCloseBracketIndex = text.indexOf('}', bracketIndex + 1);
-            if (lastCloseBracketIndex == -1) {
-                //if there wasn't a closing bracket index just go to the end of the string
-                lastCloseBracketIndex = text.length();
-            }
-
-            String expressionText = text.substring(bracketIndex + 1, lastCloseBracketIndex);
-            if (expressionText.length() > 0) {
-                try {
-                    Object result = getJexlExpression(expressionText).evaluate(jexlContext);
-                    retVal.append(result);
-                } catch (Exception e) {
-                    //we don't want to propagate exceptions up
-                    retVal.append("_EL_ERROR_");
-                }
-            }
-        }
-
-        //append the final part
-        if (lastCloseBracketIndex < text.length()) {
-            retVal.append(text.substring(lastCloseBracketIndex + 1, text.length()));
-        }
-
-        return retVal.toString();
+        return jexlContext;
     }
 
     /**
