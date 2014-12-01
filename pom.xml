@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.perf4j</groupId>
+    <groupId>com.github.sovaa</groupId>
     <artifactId>perf4j</artifactId>
-    <version>0.9.17-SNAPSHOT</version>
+    <version>0.9.17</version>
     <packaging>jar</packaging>
 
     <name>Perf4J</name>
@@ -22,13 +22,8 @@
 
     <organization>
         <name>perf4j.org</name>
-        <url>http://www.perf4j.org</url>
+        <url>http://github.com/sovaa/perf4j</url>
     </organization>
-
-    <ciManagement>
-        <system>TeamCity</system>
-        <url>http://managed.on.a.private.build.server</url>
-    </ciManagement>
 
     <mailingLists>
         <mailingList>
@@ -137,12 +132,16 @@
         <contributor>
             <name>Thomas Buckel</name>
         </contributor>
+        <contributor>
+            <name>Oscar Eriksson</name>
+            <email>oscar.eriks@gmail.com</email>
+        </contributor>
     </contributors>
 
     <scm>
-        <url>http://github.com/perf4j/perf4j</url>
-        <connection>scm:git:git://github.com/perf4j/perf4j.git</connection>
-        <developerConnection>scm:git:git://github.com/perf4j/perf4j.git</developerConnection>
+        <url>http://github.com/sovaa/perf4j</url>
+        <connection>scm:git:git://github.com/sovaa/perf4j.git</connection>
+        <developerConnection>scm:git:git://github.com/sovaa/perf4j.git</developerConnection>
     </scm>
 
     <repositories>
@@ -193,8 +192,8 @@
 
     <properties>
         <!-- this property is used by the apt files in src/site/apt -->
-        <currentProductionVersion>0.9.16</currentProductionVersion>
-        <currentSnapshotVersion>0.9.17-SNAPSHOT</currentSnapshotVersion>
+        <currentProductionVersion>0.9.17</currentProductionVersion>
+        <currentSnapshotVersion>0.9.18-SNAPSHOT</currentSnapshotVersion>
         <git.executable>git</git.executable>
         <aspectjVersion>1.6.11</aspectjVersion>
     </properties>
@@ -387,8 +386,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
 
@@ -693,29 +692,23 @@
     </reporting>
 
     <distributionManagement>
-
         <repository>
             <id>codehaus.org</id>
             <name>Perf4j Repository</name>
             <url>dav:https://dav.codehaus.org/repository/perf4j/</url>
         </repository>
-
         <snapshotRepository>
             <id>codehaus.org</id>
             <uniqueVersion>false</uniqueVersion>
             <name>Perf4j Snapshot Repository</name>
             <url>dav:https://dav.codehaus.org/snapshots.repository/perf4j/</url>
         </snapshotRepository>
-
         <site>
             <id>codehaus.org</id>
             <url>dav:https://dav.codehaus.org/perf4j/</url>
         </site>
-
         <downloadUrl>
             http://repository.codehaus.org/org/perf4j/perf4j/
         </downloadUrl>
-
     </distributionManagement>
-
 </project>
