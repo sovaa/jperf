@@ -14,3 +14,5 @@ Releases are pushed to the central maven repository and can be included in maven
     <version>0.9.19</version>
 </dependency>
 ```
+
+Feel free to fork and send pull-requests.
