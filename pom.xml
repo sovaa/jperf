@@ -3,7 +3,7 @@
 
     <groupId>com.github.sovaa</groupId>
     <artifactId>jperf</artifactId>
-    <version>0.9.19</version>
+    <version>0.9.20-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>JPerf</name>
@@ -51,108 +51,17 @@
 
     <scm>
         <url>git@github.com:sovaa/jperf</url>
-        <connection>scm:git:git@github.com/sovaa/jperf.git</connection>
-        <developerConnection>scm:git:git://github.com/sovaa/jperf.git</developerConnection>
+        <connection>scm:git:git@github.com:sovaa/jperf.git</connection>
+        <developerConnection>scm:git:git@github.com:sovaa/jperf.git</developerConnection>
     </scm>
-
-    <!--repositories>
-        <repository>
-            <id>Apache iBiblio Mirror</id>
-            <url>http://people.apache.org/repo/m2-ibiblio-rsync-repository/</url>
-        </repository>
-        <repository>
-            <id>Maven2</id>
-            <url>http://repo1.maven.org/maven2/</url>
-        </repository>
-        <repository>
-            <id>Codehaus</id>
-            <url>http://repository.codehaus.org/</url>
-        </repository>
-        <repository>
-            <id>Apache Incubator</id>
-            <url>http://people.apache.org/repo/m2-incubating-repository/</url>
-        </repository>
-        <repository>
-            <id>java.net</id>
-            <url>http://download.java.net/maven/2/</url>
-        </repository>
-    </repositories-->
-
-    <!--pluginRepositories>
-        <pluginRepository>
-            <id>Codehaus</id>
-            <url>http://repository.codehaus.org/</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>Codehaus Mojo</id>
-            <url>http://repository.codehaus.org/org/codehaus/mojo/</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>Codehaus Snapshots</id>
-            <url>http://snapshots.repository.codehaus.org/</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>Maven2</id>
-            <url>http://repo1.maven.org/maven2/</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>maven snapshots</id>
-            <url>http://people.apache.org/repo/m2-snapshot-repository/</url>
-        </pluginRepository>
-    </pluginRepositories-->
 
     <properties>
         <!-- this property is used by the apt files in src/site/apt -->
-        <currentProductionVersion>0.9.19</currentProductionVersion>
-        <currentSnapshotVersion>0.9.20-SNAPSHOT</currentSnapshotVersion>
+        <currentProductionVersion>0.9.18</currentProductionVersion>
+        <currentSnapshotVersion>0.9.19-SNAPSHOT</currentSnapshotVersion>
         <git.executable>git</git.executable>
         <aspectjVersion>1.6.11</aspectjVersion>
     </properties>
-
-    <profiles>
-        <profile>
-            <id>Windows</id>
-            <activation>
-                <os>
-                    <family>Windows</family>
-                </os>
-            </activation>
-            <properties>
-                <git.executable>git.cmd</git.executable>
-            </properties>
-        </profile>
-        <profile>
-            <id>ajc</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>aspectj-maven-plugin</artifactId>
-                        <version>1.4</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.aspectj</groupId>
-                                <artifactId>aspectjtools</artifactId>
-                                <version>${aspectjVersion}</version>
-                            </dependency>
-                        </dependencies>
-                        <configuration>
-                                <source>1.5</source>
-                                <target>1.5</target>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>compile</goal>       <!-- use this goal to weave all your main classes -->
-                                    <goal>test-compile</goal>  <!-- use this goal to weave all your test classes -->
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
     <dependencies>
         <!-- if you use the log4j implementation of jperf, you must also include this dependency -->
@@ -290,6 +199,27 @@
     </dependencies>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <!-- for surefire reports -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jxr-plugin</artifactId>
+                    <version>2.5</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>2.18</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.10.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
             <!-- Tell Maven to compile for Java 1.6 -->
             <plugin>
@@ -574,7 +504,7 @@
                 <configuration>
                     <serverId>ossrh</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
         </plugins>
@@ -592,8 +522,9 @@
         <plugins>
             <!-- Add the javadoc to the reporting section in the maven site -->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.8</version>
+                <version>2.10.1</version>
                 <configuration>
                     <attach>true</attach>
                     <links>
@@ -617,8 +548,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>2.9</version>
+                <version>2.18</version>
                 <configuration>
+                    <forkCount>5</forkCount>
+                    <reuseForks>true</reuseForks>
                     <argLine>-Xmx512m</argLine>
                 </configuration>
             </plugin>
@@ -627,7 +560,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jxr-plugin</artifactId>
-                <version>2.3</version>
+                <version>2.5</version>
             </plugin>
         </plugins>
     </reporting>
