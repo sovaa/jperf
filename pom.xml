@@ -32,8 +32,8 @@
     </organization>
 
     <issueManagement>
-        <system>JIRA</system>
-        <url>http://jira.codehaus.org/browse/JPERF</url>
+        <system>GitHub Issues</system>
+        <url>https://github.com/sovaa/jperf/issues</url>
     </issueManagement>
 
     <developers>
@@ -50,8 +50,8 @@
     </developers>
 
     <scm>
-        <url>git@github.com:sovaa/jperf</url>
-        <connection>scm:git:git@github.com:sovaa/jperf.git</connection>
+        <url>https://github.com/sovaa/jperf</url>
+        <connection>scm:git:git://github.com/sovaa/jperf.git</connection>
         <developerConnection>scm:git:git@github.com:sovaa/jperf.git</developerConnection>
     </scm>
 

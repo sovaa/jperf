@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<project name="Perf4J ${project.version}">
-
+<project name="JPerf ${project.version}">
     <version position="left"/>
     <publishDate position="right" format="yyyy-MM-dd"/>
 
-    <bannerLeft>
-        <src>images/homeaway_logo.png</src>
-        <href>http://www.homeaway.com</href>
-    </bannerLeft>
-
     <bannerRight>
-        <name>Perf4J ${project.version}</name>
+        <name>JPerf ${project.version}</name>
         <href>index.html</href>
     </bannerRight>
-
 
     <body>
         <head>
@@ -40,9 +33,6 @@
     </body>
 
     <poweredBy>
-        <logo name="Maven" href="http://maven.apache.org/"
-              img="http://maven.apache.org/images/logos/maven-feather.png"/>
-        <logo name="Homeaway" href="http://www.homeaway.com"
-              img="images/homeaway_logo.png"/>
+        <logo name="Maven" href="http://maven.apache.org/" img="http://maven.apache.org/images/logos/maven-feather.png"/>
     </poweredBy>
 </project>
