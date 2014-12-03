@@ -17,5 +17,5 @@ Releases are pushed to the central maven repository and can be included in maven
 
 Feel free to fork and send pull-requests.
 
-Issue tracking: https://github.com/sovaa/jperf/issues/
-Website: http://sovaa.github.io/jperf
+* Issue tracking: https://github.com/sovaa/jperf/issues/
+* Website: http://sovaa.github.io/jperf
