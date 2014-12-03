@@ -361,7 +361,7 @@
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            <mainClass>org.jperf.LogParser</mainClass>
+                            <mainClass>net.jperf.LogParser</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

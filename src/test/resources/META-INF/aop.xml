@@ -4,31 +4,31 @@
 <!-- This file is used by AspectJ to weave in aspects into the jperf test classes -->
 <aspectj>
     <weaver options="-verbose -showWeaveInfo">
-        <include within="org.jperf.aop.ProfiledObject"/>
-        <include within="org.jperf.aop.InMemoryTimingAspect"/>
-        <include within="org.jperf.aop.ScopedInMemoryTimingAspect"/>
-        <include within="org.jperf.log4j.aop.*"/>
-        <include within="org.jperf.slf4j.aop.*"/>
-        <include within="org.jperf.javalog.aop.*"/>
+        <include within="net.jperf.aop.ProfiledObject"/>
+        <include within="net.jperf.aop.InMemoryTimingAspect"/>
+        <include within="net.jperf.aop.ScopedInMemoryTimingAspect"/>
+        <include within="net.jperf.log4j.aop.*"/>
+        <include within="net.jperf.slf4j.aop.*"/>
+        <include within="net.jperf.javalog.aop.*"/>
     </weaver>
 
     <aspects>
-        <aspect name="org.jperf.aop.InMemoryTimingAspect"/>
-        <aspect name="org.jperf.aop.ScopedInMemoryTimingAspect"/>
-        <aspect name="org.jperf.log4j.aop.TimingAspect"/>
-        <aspect name="org.jperf.slf4j.aop.TimingAspect"/>
-        <aspect name="org.jperf.javalog.aop.TimingAspect"/>
-        <concrete-aspect name="org.jperf.aop.__ScopedInMemoryTimingAspect" extends="org.jperf.aop.ScopedInMemoryTimingAspect">
-            <pointcut name="scope" expression="!@annotation(org.jperf.aop.Profiled) AND execution(* simpleTestUnprofiled(..))"/>
+        <aspect name="net.jperf.aop.InMemoryTimingAspect"/>
+        <aspect name="net.jperf.aop.ScopedInMemoryTimingAspect"/>
+        <aspect name="net.jperf.log4j.aop.TimingAspect"/>
+        <aspect name="net.jperf.slf4j.aop.TimingAspect"/>
+        <aspect name="net.jperf.javalog.aop.TimingAspect"/>
+        <concrete-aspect name="net.jperf.aop.__ScopedInMemoryTimingAspect" extends="net.jperf.aop.ScopedInMemoryTimingAspect">
+            <pointcut name="scope" expression="!@annotation(net.jperf.aop.Profiled) AND execution(* simpleTestUnprofiled(..))"/>
         </concrete-aspect>
-        <concrete-aspect name="org.jperf.log4j.aop.__ScopedTimingAspect" extends="org.jperf.log4j.aop.ScopedTimingAspect">
-            <pointcut name="scope" expression="!@annotation(org.jperf.aop.Profiled) AND execution(* simpleTestUnprofiled(..))"/>
+        <concrete-aspect name="net.jperf.log4j.aop.__ScopedTimingAspect" extends="net.jperf.log4j.aop.ScopedTimingAspect">
+            <pointcut name="scope" expression="!@annotation(net.jperf.aop.Profiled) AND execution(* simpleTestUnprofiled(..))"/>
         </concrete-aspect>
-        <concrete-aspect name="org.jperf.slf4j.aop.__ScopedTimingAspect" extends="org.jperf.slf4j.aop.ScopedTimingAspect">
-            <pointcut name="scope" expression="!@annotation(org.jperf.aop.Profiled) AND execution(* simpleTestUnprofiled(..))"/>
+        <concrete-aspect name="net.jperf.slf4j.aop.__ScopedTimingAspect" extends="net.jperf.slf4j.aop.ScopedTimingAspect">
+            <pointcut name="scope" expression="!@annotation(net.jperf.aop.Profiled) AND execution(* simpleTestUnprofiled(..))"/>
         </concrete-aspect>
-        <concrete-aspect name="org.jperf.javalog.aop.__ScopedTimingAspect" extends="org.jperf.javalog.aop.ScopedTimingAspect">
-            <pointcut name="scope" expression="!@annotation(org.jperf.aop.Profiled) AND execution(* simpleTestUnprofiled(..))"/>
+        <concrete-aspect name="net.jperf.javalog.aop.__ScopedTimingAspect" extends="net.jperf.javalog.aop.ScopedTimingAspect">
+            <pointcut name="scope" expression="!@annotation(net.jperf.aop.Profiled) AND execution(* simpleTestUnprofiled(..))"/>
         </concrete-aspect>
     </aspects>
 </aspectj>

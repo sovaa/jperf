@@ -53,7 +53,7 @@ System.out.println("ms for block n was: " + (System.currentTimeMillis() - start)
 
   * A servlet for exposing performance graphs in a web application.
 
-  * A {{{./apidocs/org/jperf/aop/Profiled.html}Profiled}} annotation and a set of custom aspects that allow
+  * A {{{./apidocs/net.jperf/aop/Profiled.html}Profiled}} annotation and a set of custom aspects that allow
     unobstrusive timing statements when coupled with an AOP framework such as AspectJ or Spring AOP.
 
   * An extensible architecture.

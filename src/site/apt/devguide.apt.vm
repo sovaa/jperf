@@ -14,7 +14,7 @@ JPerf Developer Guide
 
 * {Adding Timing Statements}
 
-  The {{{./apidocs/org/jperf/LoggingStopWatch.html}org.jperf.LoggingStopWatch}} class or one of its logging-framework
+  The {{{./apidocs/net.jperf/LoggingStopWatch.html}net.jperf.LoggingStopWatch}} class or one of its logging-framework
   specific subclasses is used to calculate execution times and log them as shown:
 
 +-----------------------------------------------------------------------------+
@@ -88,7 +88,7 @@ INFO: start[1230493239968] time[852] tag[codeBlock2.failure] message[Exception w
 +-----------------------------------------------------------------------------+
 
   Note that in addition to explicitly creating StopWatches in code, you can also use the
-  {{{./apidocs/org/jperf/aop/Profiled.html}org.jperf.aop.Profiled}} annotation to mark methods that should be timed.
+  {{{./apidocs/net.jperf/aop/Profiled.html}net.jperf.aop.Profiled}} annotation to mark methods that should be timed.
   The use of the @Profiled annotation together with an aspect-oriented programming framework like AspectJ or
   Spring AOP is {{{Unobtrusive_Logging_with_Profiled_and_AOP}described below}}.
   
@@ -96,7 +96,7 @@ INFO: start[1230493239968] time[852] tag[codeBlock2.failure] message[Exception w
 
   Once you have set up the logging in your application to log execution times, you will want to parse those log files
   to generate aggregated performance statistics such as mean, min and max times. Here is an example using the
-  log parser. Note that {{{./apidocs/org/jperf/LogParser.html}org.jperf.LogParser}} is configured as the main class
+  log parser. Note that {{{./apidocs/net.jperf/LogParser.html}net.jperf.LogParser}} is configured as the main class
   to run in the jperf jar file, so the parser can be run as follows:
 
 +-----------------------------------------------------------------------------+
@@ -172,10 +172,10 @@ java -jar jperf-${currentProductionVersion}.jar --graph perfGraphs.out times.log
 
   <<Important note for logback users:>> Support for the {{{http://logback.qos.ch/}logback}} logging framework was
   added in JPerf 0.9.16. All of the log4j appenders mentioned in the examples below have corresponding logback
-  versions. See the {{{./apidocs/index.html?org/jperf/logback/package-summary.html}javadoc}} for more information.
+  versions. See the {{{./apidocs/index.html?net.jperf/logback/package-summary.html}javadoc}} for more information.
 
   The most important JPerf appender is the
-  {{{./apidocs/org/jperf/log4j/AsyncCoalescingStatisticsAppender.html}AsyncCoalescingStatisticsAppender}}. This
+  {{{./apidocs/net.jperf/log4j/AsyncCoalescingStatisticsAppender.html}AsyncCoalescingStatisticsAppender}}. This
   appender takes all of the logged StopWatch messages within a specified timespan, aggregates them to a single
   <<<GroupedTimingStatistics>>> log message, and then sends this single message to any downstream appenders (such as
   FileAppenders or one of the other custom JPerf appenders, described below).
@@ -208,7 +208,7 @@ java -jar jperf-${currentProductionVersion}.jar --graph perfGraphs.out times.log
        file appender defined below
     -->
     <appender name="CoalescingStatistics"
-              class="org.jperf.log4j.AsyncCoalescingStatisticsAppender">
+              class="net.jperf.log4j.AsyncCoalescingStatisticsAppender">
         <!--
           The TimeSlice option is used to determine the time window for which
           all received StopWatch logs are aggregated to create a single
@@ -229,13 +229,13 @@ java -jar jperf-${currentProductionVersion}.jar --graph perfGraphs.out times.log
 
     <!-- Loggers -->
     <!--
-      The JPerf logger. Note that org.jperfTimingLogger is the value of the
-      org.jperfStopWatch.DEFAULT_LOGGER_NAME constant. Also, note that
+      The JPerf logger. Note that net.jperfTimingLogger is the value of the
+      net.jperf.StopWatch.DEFAULT_LOGGER_NAME constant. Also, note that
       additivity is set to false, which is usually what is desired - this means
       that timing statements will only be sent to this logger and NOT to
       upstream loggers.
     -->
-    <logger name="org.jperf.TimingLogger" additivity="false">
+    <logger name="net.jperf.TimingLogger" additivity="false">
         <level value="INFO"/>
         <appender-ref ref="CoalescingStatistics"/>
     </logger>
@@ -255,7 +255,7 @@ java -jar jperf-${currentProductionVersion}.jar --graph perfGraphs.out times.log
 
 +-----------------------------------------------------------------------------+
 import org.apache.log4j.*;
-import org.jperf.*;
+import net.jperf.*;
 
 public class JPerfAppenderExample {
     public static void main (String[] args) throws Exception {
@@ -265,7 +265,7 @@ public class JPerfAppenderExample {
         Logger rootLogger = Logger.getRootLogger();
 
         for (int i = 0; i < 50; i++) {
-            // By default the Log4JStopWatch uses the Logger named org.jperf.TimingLogger
+            // By default the Log4JStopWatch uses the Logger named net.jperf.TimingLogger
             StopWatch stopWatch = new Log4JStopWatch();
 
             // for demo purposes just sleep
@@ -287,7 +287,7 @@ public class JPerfAppenderExample {
 +-----------------------------------------------------------------------------+
 
   Note that only the messages logged with the rootLogger ("Normal logging messages only go to the console") are
-  displayed on the console - this is because the additivity flag is set to false on the org.jperf.TimingLogger in
+  displayed on the console - this is because the additivity flag is set to false on the net.jperf.TimingLogger in
   the log4j.xml config. Here is some sample output written to perfStats.log:
   
 +-----------------------------------------------------------------------------+
@@ -333,7 +333,7 @@ secondBlock                                           1140.3         516        
 +-----------------------------------------------------------------------------+
 
   Similar to the log parser, the log4j appender supports CSV-formatted output by way of the
-  {{{./apidocs/org/jperf/log4j/StatisticsCsvLayout.html}StatisticsCsvLayout}}. That is, by replacing the PatternLayout
+  {{{./apidocs/net.jperf/log4j/StatisticsCsvLayout.html}StatisticsCsvLayout}}. That is, by replacing the PatternLayout
   with a StatisticsCsvLayout on the fileAppender, output will be CSV formatted instead of text formatted as shown above.
   The StatisticsCsvLayout supports a number of options to customize which data values are output; see the javadoc for
   more information.
@@ -343,7 +343,7 @@ secondBlock                                           1140.3         516        
   One of the main benefits of using the AsyncCoalescingStatisticsAppender is that other custom JPerf appenders that
   handle GroupedTimingStatistics messages can be attached to an AsyncCoalescingStatisticsAppender in order to display
   or analyze the statistics in other useful ways. The
-  {{{./apidocs/org/jperf/log4j/GraphingStatisticsAppender.html}GraphingStatisticsAppender}} uses the
+  {{{./apidocs/net.jperf/log4j/GraphingStatisticsAppender.html}GraphingStatisticsAppender}} uses the
   GroupedTimingStatistics to generate performance graphs. These graphs, which are implemented as URLs using the
   {{{http://code.google.com/apis/chart/}Google Chart API}} to create the actual graph images, can then be displayed
   in a browser, or {{{Exposing_Performance_Graphs_in_a_Web_Application}exposed in a running web server}}.
@@ -372,7 +372,7 @@ secondBlock                                           1140.3         516        
       file appender defined below
     -->
     <appender name="CoalescingStatistics"
-              class="org.jperf.log4j.AsyncCoalescingStatisticsAppender">
+              class="net.jperf.log4j.AsyncCoalescingStatisticsAppender">
         <!--
           The TimeSlice option is used to determine the time window for which
           all received StopWatch logs are aggregated to create a single
@@ -402,7 +402,7 @@ secondBlock                                           1140.3         516        
       firstBlock and secondBlock tags
     -->
     <appender name="graphExecutionTimes"
-              class="org.jperf.log4j.GraphingStatisticsAppender">
+              class="net.jperf.log4j.GraphingStatisticsAppender">
         <!-- Possible GraphTypes are Mean, Min, Max, StdDev, Count and TPS -->
         <param name="GraphType" value="Mean"/>
         <!-- The tags of the timed execution blocks to graph are specified here -->
@@ -415,7 +415,7 @@ secondBlock                                           1140.3         516        
       for the firstBlock and secondBlock tags
     -->
     <appender name="graphExecutionTPS"
-              class="org.jperf.log4j.GraphingStatisticsAppender">
+              class="net.jperf.log4j.GraphingStatisticsAppender">
         <param name="GraphType" value="TPS"/>
         <param name="TagNamesToGraph" value="firstBlock,secondBlock"/>
         <appender-ref ref="graphsFileAppender"/>
@@ -434,13 +434,13 @@ secondBlock                                           1140.3         516        
 
     <!-- Loggers -->
     <!--
-      The JPerf logger. Note that org.jperfTimingLogger is the value of the
-      org.jperfStopWatch.DEFAULT_LOGGER_NAME constant. Also, note that
+      The JPerf logger. Note that net.jperfTimingLogger is the value of the
+      net.jperfStopWatch.DEFAULT_LOGGER_NAME constant. Also, note that
       additivity is set to false, which is usually what is desired - this means
       that timing statements will only be sent to this logger and NOT to
       upstream loggers.
     -->
-    <logger name="org.jperf.TimingLogger" additivity="false">
+    <logger name="net.jperf.TimingLogger" additivity="false">
         <level value="INFO"/>
         <appender-ref ref="CoalescingStatistics"/>
     </logger>
@@ -470,7 +470,7 @@ secondBlock                                           1140.3         516        
 ** {Exposing Performance Statistics as JMX Attributes}
 
   Another useful custom JPerf appender is the
-  {{{./apidocs/org/jperf/log4j/JmxAttributeStatisticsAppender.html}JmxAttributeStatisticsAppender}}. This appender
+  {{{./apidocs/net.jperf/log4j/JmxAttributeStatisticsAppender.html}JmxAttributeStatisticsAppender}}. This appender
   exposes performance statistics as attributes on a JMX MBean, and in addition it allows you to set thresholds for
   these statistics and send notifications when the logged values exceed the thresholds. There are many third party tools
   that are designed to interact with and monitor applications through JMX. Thus, exposing performance statistics
@@ -501,7 +501,7 @@ secondBlock                                           1140.3         516        
       file appender defined below
     -->
     <appender name="CoalescingStatistics"
-              class="org.jperf.log4j.AsyncCoalescingStatisticsAppender">
+              class="net.jperf.log4j.AsyncCoalescingStatisticsAppender">
         <!--
           The TimeSlice option is used to determine the time window for which
           all received StopWatch logs are aggregated to create a single
@@ -529,7 +529,7 @@ secondBlock                                           1140.3         516        
       firstBlock and secondBlock tags
     -->
     <appender name="graphExecutionTimes"
-              class="org.jperf.log4j.GraphingStatisticsAppender">
+              class="net.jperf.log4j.GraphingStatisticsAppender">
         <!-- Possible GraphTypes are Mean, Min, Max, StdDev, Count and TPS -->
         <param name="GraphType" value="Mean"/>
         <!-- The tags of the timed execution blocks to graph are specified here -->
@@ -542,7 +542,7 @@ secondBlock                                           1140.3         516        
       for the firstBlock and secondBlock tags
     -->
     <appender name="graphExecutionTPS"
-              class="org.jperf.log4j.GraphingStatisticsAppender">
+              class="net.jperf.log4j.GraphingStatisticsAppender">
         <param name="GraphType" value="TPS"/>
         <param name="TagNamesToGraph" value="firstBlock,secondBlock"/>
         <appender-ref ref="graphsFileAppender"/>
@@ -563,7 +563,7 @@ secondBlock                                           1140.3         516        
       This JMX appender creates an MBean and publishes it to the platform MBean server by
       default.
     -->
-    <appender name="jperfJmxAppender" class="org.jperf.log4j.JmxAttributeStatisticsAppender">
+    <appender name="jperfJmxAppender" class="net.jperf.log4j.JmxAttributeStatisticsAppender">
         <!--
           You must specify the tag names whose statistics should be exposed as
           MBean attributes.
@@ -579,19 +579,19 @@ secondBlock                                           1140.3         516        
         <param name="NotificationThresholds" value="firstBlockMax(0-800),secondBlockMax(&lt;1500)"/>
         <!--
           You can also specify an optional MBeanName param, which overrides
-          the default MBean name of org.jperftype=StatisticsExposingMBean,name=JPerf
+          the default MBean name of net.jperftype=StatisticsExposingMBean,name=JPerf
         -->
     </appender>
 
     <!-- Loggers -->
     <!--
-      The JPerf logger. Note that org.jperfTimingLogger is the value of the
-      org.jperfStopWatch.DEFAULT_LOGGER_NAME constant. Also, note that
+      The JPerf logger. Note that net.jperfTimingLogger is the value of the
+      net.jperfStopWatch.DEFAULT_LOGGER_NAME constant. Also, note that
       additivity is set to false, which is usually what is desired - this means
       that timing statements will only be sent to this logger and NOT to
       upstream loggers.
     -->
-    <logger name="org.jperf.TimingLogger" additivity="false">
+    <logger name="net.jperf.TimingLogger" additivity="false">
         <level value="INFO"/>
         <appender-ref ref="CoalescingStatistics"/>
     </logger>
@@ -631,7 +631,7 @@ java -Dcom.sun.management.jmxremote -cp .:./jperf-${currentProductionVersion}.ja
   One of the most common application types that require good performance monitoring are web applications. If you have
   previously configured a GraphingStatisticsAppender
   {{{Writing_Graphs_with_the_GraphingStatisticsAppender}as described above}}, you can load a
-  {{{./apidocs/org/jperf/log4j/servlet/GraphingServlet.html}GraphingServlet}} in your web.xml file to expose
+  {{{./apidocs/net.jperf/log4j/servlet/GraphingServlet.html}GraphingServlet}} in your web.xml file to expose
   performance graphs through a browser front end. Here is an example web.xml file:
 
 +-----------------------------------------------------------------------------+
@@ -645,7 +645,7 @@ java -Dcom.sun.management.jmxremote -cp .:./jperf-${currentProductionVersion}.ja
 
     <servlet>
         <servlet-name>jperf</servlet-name>
-        <servlet-class>org.jperf.log4j.servlet.GraphingServlet</servlet-class>
+        <servlet-class>net.jperf.log4j.servlet.GraphingServlet</servlet-class>
         <!--
           The graphNames parameter determines which graphs to expose. The
           param-value should be a comma-separated list of the
@@ -670,13 +670,13 @@ java -Dcom.sun.management.jmxremote -cp .:./jperf-${currentProductionVersion}.ja
   file appenders attached to the GraphingStatisticsAppenders in the log4j.xml file.
 
   Note that as with the logback appenders, there is also a logback version of the
-  {{{./apidocs/org/jperf/logback/servlet/GraphingServlet.html}GraphingServlet}}.
+  {{{./apidocs/net.jperf/logback/servlet/GraphingServlet.html}GraphingServlet}}.
 
 * {Unobtrusive Logging with @Profiled and AOP}
 
   One of the downsides to adding StopWatch timing statements to code is that they can clutter the business logic of
   a method, reducing the "signal-to-noise ratio" of the code. The
-  {{{./apidocs/org/jperf/aop/Profiled.html}Profiled}} annotation provided by JPerf provides a very clean way
+  {{{./apidocs/net.jperf/aop/Profiled.html}Profiled}} annotation provided by JPerf provides a very clean way
   to time method calls while keeping the executable statements free from distracting StopWatch calls. Note that the
   Profiled annotation by itself just marks a method for profiling - it does not actually add any timing code.
   Instead, you must use an aspect-oriented programming framework, such as
@@ -694,7 +694,7 @@ java -Dcom.sun.management.jmxremote -cp .:./jperf-${currentProductionVersion}.ja
   displays a number of sample methods and usages of the Profiled annotation:
 
 +-----------------------------------------------------------------------------+
-import org.jperf.aop.*;
+import net.jperf.aop.*;
 
 public class ProfiledExample {
     public static void main (String[] args) throws Exception {
@@ -787,10 +787,10 @@ public class ProfiledExample {
 
     /**
      * By default timing statements are logged to the logger named
-     * StopWatch.DEFAULT_LOGGER_NAME (i.e. org.jperf.TimingLogger),
+     * StopWatch.DEFAULT_LOGGER_NAME (i.e. net.jperf.TimingLogger),
      * but this can be overridden.
      */
-    @Profiled(tag = "loggerExample", logger = "org.jperf.MyCustomLoggerName")
+    @Profiled(tag = "loggerExample", logger = "net.jperf.MyCustomLoggerName")
     public static void nonDefaultLoggerNameExample() throws InterruptedException {
         Thread.sleep((long) (Math.random() * 1000L));
     }
@@ -805,8 +805,8 @@ public class ProfiledExample {
   AspectJ is an aspect-oriented programming extension for Java hosted by the Eclipse Foundation. JPerf ships with
   aspects that will "surround" methods that have the Profiled annotation with LoggingStopWatch timing statements (if
   desired you can examine the code for the
-  {{{./xref/org/jperf/aop/AbstractTimingAspect.html}AbstractTimingAspect}} and
-  {{{xref/org/jperf/log4j/aop/TimingAspect.html}log4j TimingAspect}} classes to see what they do). AspectJ provides
+  {{{./xref/net.jperf/aop/AbstractTimingAspect.html}AbstractTimingAspect}} and
+  {{{xref/net.jperf/log4j/aop/TimingAspect.html}log4j TimingAspect}} classes to see what they do). AspectJ provides
   several ways to "weave" these aspects into code, one of which is to use the AspectJ load-time weaver, which injects
   the aspect code into the woven classes as they are loaded.
 
@@ -845,8 +845,8 @@ public class ProfiledExample {
     framework you wish to use in your code.
   -->
   <aspects>
-    <aspect name="org.jperf.log4j.aop.TimingAspect"/>
-    <!-- if SLF4J/logback use org.jperfslf4j.aop.TimingAspect instead -->
+    <aspect name="net.jperf.log4j.aop.TimingAspect"/>
+    <!-- if SLF4J/logback use net.jperfslf4j.aop.TimingAspect instead -->
   </aspects>
 
   <weaver options="-verbose -showWeaveInfo">
@@ -906,7 +906,7 @@ simpleExample                                          727.0         599        
 
   [[1]] First, ensure that you have all the required files and dependencies in your current directory:
 
-        * {{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-log4jonly.jar}jperf-${currentProductionVersion}-log4jonly.jar}},
+        * {{{http://repository.codehaus.org/net.jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-log4jonly.jar}jperf-${currentProductionVersion}-log4jonly.jar}},
           the jar which contains only the log4j aspects and not the java.util.logging aspects
 
         * {{{http://repo1.maven.org/maven2/log4j/log4j/1.2.14/log4j-1.2.14.jar}log4j-1.2.14.jar}}, the log4j classes
@@ -986,7 +986,7 @@ simpleExample                                          727.0         599        
 
 +-----------------------------------------------------------------------------+
 import java.math.BigInteger;
-import org.jperf.aop.Profiled;
+import net.jperf.aop.Profiled;
 
 public class PrimeGenerator {
 
@@ -1034,7 +1034,7 @@ public class PrimeGenerator {
       Declare the TimingAspect that we want to weave into the other beans
       defined in this config file.
     -->
-    <bean id="timingAspect" class="org.jperf.log4j.aop.TimingAspect"/>
+    <bean id="timingAspect" class="net.jperf.log4j.aop.TimingAspect"/>
 
     <!--
       Because we included the aspectj-autoproxy element, Spring will automatically
@@ -1076,7 +1076,7 @@ public class SpringProfiledExample {
         (note it is usually easiest to use Maven or Ant to manage dependencies, see the
         {{{./downloads.html}downloads page}}):
 
-        * {{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}.jar}jperf-${currentProductionVersion}.jar}}
+        * {{{http://repository.codehaus.org/net.jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}.jar}jperf-${currentProductionVersion}.jar}}
 
         * {{{http://repo1.maven.org/maven2/org/springframework/spring/2.0.6/spring-2.0.6.jar}spring-2.0.6.jar}},
           the Spring Framework jar
@@ -1136,7 +1136,7 @@ nextPrime                                               31.0          24        
 @Stateless
 public class HelloWorldBean implements HelloWorld {
 
-    @Interceptors(org.jperf.log4j.aop.EjbTimingAspect.class)
+    @Interceptors(net.jperf.log4j.aop.EjbTimingAspect.class)
     public void sayHello() {
         System.out.println("Hello!");
     }
