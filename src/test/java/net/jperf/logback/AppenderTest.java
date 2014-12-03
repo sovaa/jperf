@@ -1,6 +1,6 @@
-package net.jperf.logback;
-/* Copyright (c) 2008-2009 HomeAway, Inc.
- * All rights reserved.  http://www.jperf.org
+/*
+ * Copyright (c) 2008-2015 JPerf
+ * All rights reserved.  http://www.jperf.net
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ package net.jperf.logback;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+package net.jperf.logback;
 
 
 import java.io.File;

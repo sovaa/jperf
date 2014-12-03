@@ -1,5 +1,6 @@
-/* Copyright (c) 2011 Brett Randall.
- * All rights reserved.  http://www.perf4j.org
+/*
+ * Copyright (c) 2008-2015 JPerf
+ * All rights reserved.  http://www.jperf.net
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
