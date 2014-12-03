@@ -17,12 +17,11 @@ package org.jperf.helpers;
 
 import java.util.Map;
 
-import org.jperf.helpers.StatisticsFormatter;
-import org.perf4j.GroupedTimingStatistics;
-import org.perf4j.TimingStatistics;
+import org.jperf.GroupedTimingStatistics;
+import org.jperf.TimingStatistics;
 
 /**
- * This helper formatter class outputs {@link org.perf4j.GroupedTimingStatistics} in a JSON value format. This
+ * This helper formatter class outputs {@link org.jperf.GroupedTimingStatistics} in a JSON value format. This
  * formatter supports the following JSON formats:
  * <ul>
  * 	<li> json - Alias for {@code json:list}

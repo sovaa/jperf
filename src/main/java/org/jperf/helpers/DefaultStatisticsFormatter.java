@@ -16,7 +16,7 @@
 package org.jperf.helpers;
 
 import org.jperf.helpers.StatisticsFormatter;
-import org.perf4j.GroupedTimingStatistics;
+import org.jperf.GroupedTimingStatistics;
 
 /**
  * Default {@link org.jperf.helpers.StatisticsFormatter} that has no header or footer and delegates
