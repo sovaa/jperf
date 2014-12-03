@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.perf4j.helpers;
+package org.jperf.helpers;
 
 import java.util.Map;
 
+import org.jperf.helpers.StatisticsFormatter;
 import org.perf4j.GroupedTimingStatistics;
 import org.perf4j.TimingStatistics;
 

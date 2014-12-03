@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.perf4j.helpers;
+package org.jperf.helpers;
 
 /**
  * Statistics output formatter

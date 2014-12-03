@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.perf4j.helpers;
+package org.jperf.helpers;
 
+import org.jperf.helpers.StatisticsFormatter;
 import org.perf4j.GroupedTimingStatistics;
 
 /**
- * Default {@link StatisticsFormatter} that has no header or footer and delegates
+ * Default {@link org.jperf.helpers.StatisticsFormatter} that has no header or footer and delegates
  * all formatting to a {@link GroupedTimingStatisticsFormatter}.
  * 
  * @see GroupedTimingStatisticsFormatter
