@@ -4,6 +4,8 @@
 
 Overview
 
+  JPerf is a fork of the abandoned Perf4J project.
+
   JPerf is a set of utilities for calculating and displaying performance statistics for Java code. For developers who
   are familiar with logging frameworks such as log4j or logback, an analogy helps to describe JPerf:
 
@@ -60,34 +62,22 @@ System.out.println("ms for block n was: " + (System.currentTimeMillis() - start)
 
   See the {{{./devguide.html}Developer Guide}} to get started, or {{{./downloads.html}download}} JPerf now.
 
-Integrated Tools
-
-  Thanks to the folks that have integrated JPerf into other frameworks:
-
-  * {{{http://www.grails.org/plugin/jperf}Grails Perf4j Integration Plugin}}, authored by Daniel Rinser
-
-  * {{{http://seam-jperf.sourceforge.net/}Seam-Perf4j}}, authored by Marcin Zaj&#261;czkowski
-
-  * {{{http://perf4cdi.sourceforge.net/}Perf4CDI}}, authored by Marcin Zaj&#261;czkowski
-
   []
 
 What's New
 
-  Recently released version 0.9.16, the major new feature being custom logback appenders. Logback is now supported
-  with the same level of functionality as log4j. Thanks to Xu Huisheng for the submission!
+  Recently released (2014-12-01) version 0.9.19 of JPerf includes commits since the last Perf4J release 0.9.16 in 2011.
   
 What's Next
 
-  JPerf has been on hiatus for a while, but we are now starting back up with development, hoping to add more community
-  involvement. To help with this effort, we've recently moved the code repository to GitHub,
-  {{https://github.com/jperf/jperf}}, the main goal being to make it easier for contributors and maintainers to
-  branch and merge code patches.
+  JPerf is a fork of the abandoned Perf4J project. Next up is to rebrand it as JPerf completely and continue with
+  development and bug fixes that are long overdue.
 
   []
 
-  If there are missing features you would like added, please let us know on our {{{./mail-lists.html}mailing lists}},
-  or better yet, download the {{{./source-repository.html}source code}} and become a contributor.
+  If there are missing features you would like added, please let us know either on github or by sending an email to
+  {{{mailto:contact@jperf.net}contact@jperf.net}}, or better yet, download the
+  {{{./source-repository.html}source code}} and become a contributor and sending pull-requests.
 
 
 

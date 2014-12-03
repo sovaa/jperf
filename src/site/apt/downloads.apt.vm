@@ -7,48 +7,37 @@ Download Project Artifacts
 * Release Versions
 
   <All release versions of JPerf are available from the maven repository at:>
-  <<{{http://repository.codehaus.org/org/jperf/jperf/}}>>
+  <<{{http://search.maven.org/#search|ga|1|g%3A%22com.github.sovaa%22a%3A%22jperf%22}}>>
 
   * <<${currentProductionVersion}>>
 
-    * {{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}.jar}Main JAR archive}}
-      ({{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}.jar.md5}MD5}})
+    * {{{http://search.maven.org/remotecontent?filepath=com/github/sovaa/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}.jar}Main JAR archive}}
+      ({{{http://search.maven.org/remotecontent?filepath=com/github/sovaa/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}.jar.asc}ASC}})
 
-    * {{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-log4jonly.jar}JAR archive containing log4j aspects and extensions but NOT extensions for other logging frameworks}}
-      ({{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-log4jonly.jar.md5}MD5}})
+    * {{{http://search.maven.org/remotecontent?filepath=com/github/sovaa/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-log4jonly.jar}JAR archive containing log4j aspects and extensions but NOT extensions for other logging frameworks}}
+      ({{{http://search.maven.org/remotecontent?filepath=com/github/sovaa/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-log4jonly.jar.md5}MD5}})
       This jar is necessary when using the ajc AspectJ compiler and you want to only weave in the log4j aspects.
 
-    * {{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-javalogonly.jar}JAR archive containing java.util.logging aspects and extensions but NOT extensions for other logging frameworks}}
-      ({{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-javalogonly.jar.md5}MD5}})
+    * {{{http://search.maven.org/remotecontent?filepath=com/github/sovaa/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-javalogonly.jar}JAR archive containing java.util.logging aspects and extensions but NOT extensions for other logging frameworks}}
+      ({{{http://search.maven.org/remotecontent?filepath=com/github/sovaa/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-javalogonly.jar.md5}MD5}})
       This jar is necessary when using the ajc AspectJ compiler and you want to only weave in the java.util.logging aspects.
 
-    * {{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-commonslogonly.jar}JAR archive containing Apache Commons Logging aspects and extensions but NOT extensions for other logging frameworks}}
-      ({{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-commonslogonly.jar.md5}MD5}})
+    * {{{http://search.maven.org/remotecontent?filepath=com/github/sovaa/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-commonslogonly.jar}JAR archive containing Apache Commons Logging aspects and extensions but NOT extensions for other logging frameworks}}
+      ({{{http://search.maven.org/remotecontent?filepath=com/github/sovaa/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-commonslogonly.jar.md5}MD5}})
       This jar is necessary when using the ajc AspectJ compiler and you want to only weave in the Apache Commons Logging aspects.
 
-    * {{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-logbackonly.jar}JAR archive containing SLF4J aspects AND logback extensions but NOT extensions for other frameworks}}
-      ({{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-logbackonly.jar.md5}MD5}})
+    * {{{http://search.maven.org/remotecontent?filepath=com/github/sovaa/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-logbackonly.jar}JAR archive containing SLF4J aspects AND logback extensions but NOT extensions for other frameworks}}
+      ({{{http://search.maven.org/remotecontent?filepath=com/github/sovaa/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-logbackonly.jar.md5}MD5}})
       This jar is necessary when using the ajc AspectJ compiler and you want to only weave in the SLF4J aspects and you
       are using any of the custom logback appenders.
 
-    * {{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-slf4jonly.jar}JAR archive containing SLF4J aspects and extensions but NOT extensions for other logging frameworks}}
-      ({{{http://repository.codehaus.org/org/jperf/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-slf4jonly.jar.md5}MD5}})
+    * {{{http://search.maven.org/remotecontent?filepath=com/github/sovaa/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-slf4jonly.jar}JAR archive containing SLF4J aspects and extensions but NOT extensions for other logging frameworks}}
+      ({{{http://search.maven.org/remotecontent?filepath=com/github/sovaa/jperf/${currentProductionVersion}/jperf-${currentProductionVersion}-slf4jonly.jar.md5}MD5}})
       This jar is necessary when using the ajc AspectJ compiler and you want to only weave in the SLF4J aspects. This
       jar does NOT contain the logback appenders, so it should only be used if you are using SLF4J as the logging
       interface but using a different framework for the underlying appender implementation.
 
   []
-
-* Snapshot Versions
-
-  <All SNAPSHOT versions built from the development trunk are available in the snapshot repository at:>
-  <<{{http://snapshots.repository.codehaus.org/org/jperf/jperf/}}>>
-
-  * <<${currentSnapshotVersion}>>
-
-    * Artifacts available at {{http://snapshots.repository.codehaus.org/org/jperf/jperf/${currentSnapshotVersion}/}}.
-      Unfortunately, Maven 3 no longer supports non-unique snapshot deployments, so to get the most recent snapshot
-      you should pull the most recent timestamped version from this directory.
 
 * Maven Dependencies and Ant
 
@@ -58,7 +47,7 @@ Download Project Artifacts
 +-----------------------------------------------------------------------------+
 
     <dependency>
-        <groupId>org.jperf</groupId>
+        <groupId>com.github.sovaa</groupId>
         <artifactId>jperf</artifactId>
         <version>${currentProductionVersion}</version>
         <scope>compile</scope>
@@ -136,7 +125,7 @@ Download Project Artifacts
 +-----------------------------------------------------------------------------+
     <!-- Maven's dependencies task pulls down the jar files to a local directory -->
     <artifact:dependencies pathId="jperf.classpath">
-        <dependency groupId="org.jperf" artifactId="jperf" version="${currentProductionVersion}" scope="compile"/>
+        <dependency groupId="com.github.sovaa" artifactId="jperf" version="${currentProductionVersion}" scope="compile"/>
         <!-- This dependency is only required if using log4j extensions in jperf -->
         <dependency groupId="log4j" artifactId="log4j" version="1.2.14" scope="compile"/>
         <!-- This dependency is only required if using commons logging extensions in jperf -->
