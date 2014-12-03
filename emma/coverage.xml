@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- EMMA v2.0.5312 report, generated Wed Dec 03 15:03:57 CST 2014 -->
+<?xml version="1.0" encoding="UTF-8"?><!-- EMMA v2.0.5312 report, generated Wed Dec 03 21:36:18 CST 2014 -->
 
 <report>
   <stats>
@@ -12,10 +12,10 @@
     <all name="all classes">
       <coverage type="class, %" value="77%  (71/92)"/>
       <coverage type="method, %" value="70%  (489/697)"/>
-      <coverage type="block, %" value="68%  (7332/10800)"/>
-      <coverage type="line, %" value="69%  (1637.7/2389)"/>
+      <coverage type="block, %" value="68%  (7346/10800)"/>
+      <coverage type="line, %" value="69%  (1641.5/2389)"/>
 
-      <package name="org.jperf.commonslog">
+      <package name="net.jperf.commonslog">
         <coverage type="class, %" value="0%   (0/1)"/>
         <coverage type="method, %" value="0%   (0/32)"/>
         <coverage type="block, %" value="0%   (0/344)"/>
@@ -196,7 +196,7 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf.commonslog.aop">
+      <package name="net.jperf.commonslog.aop">
         <coverage type="class, %" value="0%   (0/3)"/>
         <coverage type="method, %" value="0%   (0/6)"/>
         <coverage type="block, %" value="0%   (0/42)"/>
@@ -275,7 +275,7 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf.logback.servlet">
+      <package name="net.jperf.logback.servlet">
         <coverage type="class, %" value="0%   (0/1)"/>
         <coverage type="method, %" value="0%   (0/3)"/>
         <coverage type="block, %" value="0%   (0/35)"/>
@@ -311,7 +311,7 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf.log4j.servlet">
+      <package name="net.jperf.log4j.servlet">
         <coverage type="class, %" value="100% (1/1)"/>
         <coverage type="method, %" value="67%  (2/3)"/>
         <coverage type="block, %" value="31%  (11/35)"/>
@@ -347,7 +347,7 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf.logback">
+      <package name="net.jperf.logback">
         <coverage type="class, %" value="80%  (4/5)"/>
         <coverage type="method, %" value="41%  (32/78)"/>
         <coverage type="block, %" value="40%  (400/1003)"/>
@@ -807,7 +807,7 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf.servlet">
+      <package name="net.jperf.servlet">
         <coverage type="class, %" value="100% (1/1)"/>
         <coverage type="method, %" value="67%  (6/9)"/>
         <coverage type="block, %" value="63%  (137/216)"/>
@@ -873,682 +873,11 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf.log4j">
-        <coverage type="class, %" value="100% (7/7)"/>
-        <coverage type="method, %" value="69%  (80/116)"/>
-        <coverage type="block, %" value="66%  (855/1302)"/>
-        <coverage type="line, %" value="70%  (233.3/331)"/>
-
-        <srcfile name="AsyncCoalescingStatisticsAppender.java">
-          <coverage type="class, %" value="100% (3/3)"/>
-          <coverage type="method, %" value="57%  (21/37)"/>
-          <coverage type="block, %" value="56%  (241/434)"/>
-          <coverage type="line, %" value="62%  (67.9/109)"/>
-
-          <class name="AsyncCoalescingStatisticsAppender">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="47%  (14/30)"/>
-            <coverage type="block, %" value="49%  (169/342)"/>
-            <coverage type="line, %" value="54%  (45.6/84)"/>
-
-            <method name="getAllAppenders (): Enumeration">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/16)"/>
-              <coverage type="line, %" value="0%   (0/3)"/>
-            </method>
-            <method name="getAppender (String): Appender">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/17)"/>
-              <coverage type="line, %" value="0%   (0/3)"/>
-            </method>
-            <method name="getDownstreamLogLevel (): String">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/4)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="getQueueSize (): int">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/4)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="getShutdownWaitMillis (): long">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/4)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="getStopWatchParserClassName (): String">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/4)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="isAttached (Appender): boolean">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/17)"/>
-              <coverage type="line, %" value="0%   (0/3)"/>
-            </method>
-            <method name="isCreateRollupStatistics (): boolean">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/4)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="removeAllAppenders (): void">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/17)"/>
-              <coverage type="line, %" value="0%   (0/4)"/>
-            </method>
-            <method name="removeAppender (Appender): void">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/18)"/>
-              <coverage type="line, %" value="0%   (0/4)"/>
-            </method>
-            <method name="removeAppender (String): void">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/18)"/>
-              <coverage type="line, %" value="0%   (0/4)"/>
-            </method>
-            <method name="requiresLayout (): boolean">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/2)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="setCreateRollupStatistics (boolean): void">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/5)"/>
-              <coverage type="line, %" value="0%   (0/2)"/>
-            </method>
-            <method name="setDownstreamLogLevel (String): void">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/5)"/>
-              <coverage type="line, %" value="0%   (0/2)"/>
-            </method>
-            <method name="setShutdownWaitMillis (long): void">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/5)"/>
-              <coverage type="line, %" value="0%   (0/2)"/>
-            </method>
-            <method name="setStopWatchParserClassName (String): void">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/5)"/>
-              <coverage type="line, %" value="0%   (0/2)"/>
-            </method>
-            <method name="addAppender (Appender): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="72%  (13/18)"/>
-              <coverage type="line, %" value="92%  (3.7/4)"/>
-            </method>
-            <method name="close (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="76%  (71/93)"/>
-              <coverage type="line, %" value="87%  (19/22)"/>
-            </method>
-            <method name="activateOptions (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="95%  (21/22)"/>
-              <coverage type="line, %" value="98%  (4.9/5)"/>
-            </method>
-            <method name="AsyncCoalescingStatisticsAppender (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (18/18)"/>
-              <coverage type="line, %" value="100% (6/6)"/>
-            </method>
-            <method name="access$000 (AsyncCoalescingStatisticsAppender): boolean">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="access$100 (AsyncCoalescingStatisticsAppender): Level">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="access$200 (AsyncCoalescingStatisticsAppender): AppenderAttachableImpl">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="append (LoggingEvent): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (7/7)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="getNumDiscardedMessages (): int">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getTimeSlice (): long">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="newGenericAsyncCoalescingStatisticsAppender (): GenericAsyncCoalescingStatisticsAppender">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="setName (String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (3/3)"/>
-            </method>
-            <method name="setQueueSize (int): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (5/5)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="setTimeSlice (long): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (5/5)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-          </class>
-          <class name="AsyncCoalescingStatisticsAppender$1">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (3/3)"/>
-            <coverage type="block, %" value="75%  (43/57)"/>
-            <coverage type="line, %" value="86%  (12.8/15)"/>
-
-            <method name="handle (GroupedTimingStatistics): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="69%  (31/45)"/>
-              <coverage type="line, %" value="82%  (9.8/12)"/>
-            </method>
-            <method name="AsyncCoalescingStatisticsAppender$1 (AsyncCoalescingStatisticsAppender): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (6/6)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="error (String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (6/6)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-          </class>
-          <class name="AsyncCoalescingStatisticsAppender$ShutdownHook">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (4/4)"/>
-            <coverage type="block, %" value="83%  (29/35)"/>
-            <coverage type="line, %" value="95%  (10.4/11)"/>
-
-            <method name="run (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="71%  (15/21)"/>
-              <coverage type="line, %" value="88%  (4.4/5)"/>
-            </method>
-            <method name="AsyncCoalescingStatisticsAppender$ShutdownHook (AsyncCoalescingStatisticsAppender): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (7/7)"/>
-              <coverage type="line, %" value="100% (3/3)"/>
-            </method>
-            <method name="getAppender (): AsyncCoalescingStatisticsAppender">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="setAppender (AsyncCoalescingStatisticsAppender): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-          </class>
-        </srcfile>
-        <srcfile name="GraphingStatisticsAppender.java">
-          <coverage type="class, %" value="100% (1/1)"/>
-          <coverage type="method, %" value="58%  (14/24)"/>
-          <coverage type="block, %" value="58%  (210/365)"/>
-          <coverage type="line, %" value="65%  (58.4/90)"/>
-
-          <class name="GraphingStatisticsAppender">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="58%  (14/24)"/>
-            <coverage type="block, %" value="58%  (210/365)"/>
-            <coverage type="line, %" value="65%  (58.4/90)"/>
-
-            <method name="getAllAppenders (): Enumeration">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/16)"/>
-              <coverage type="line, %" value="0%   (0/3)"/>
-            </method>
-            <method name="getAllGraphingStatisticsAppenders (): Collection">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/4)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="getAppender (String): Appender">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/17)"/>
-              <coverage type="line, %" value="0%   (0/3)"/>
-            </method>
-            <method name="getChartGenerator (): StatisticsChartGenerator">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/3)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="isAttached (Appender): boolean">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/17)"/>
-              <coverage type="line, %" value="0%   (0/3)"/>
-            </method>
-            <method name="removeAllAppenders (): void">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/17)"/>
-              <coverage type="line, %" value="0%   (0/4)"/>
-            </method>
-            <method name="removeAppender (Appender): void">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/18)"/>
-              <coverage type="line, %" value="0%   (0/4)"/>
-            </method>
-            <method name="removeAppender (String): void">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/18)"/>
-              <coverage type="line, %" value="0%   (0/4)"/>
-            </method>
-            <method name="requiresLayout (): boolean">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/2)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="setDataPointsPerGraph (int): void">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/11)"/>
-              <coverage type="line, %" value="0%   (0/4)"/>
-            </method>
-            <method name="createChartGenerator (): StatisticsChartGenerator">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="67%  (30/45)"/>
-              <coverage type="line, %" value="89%  (8/9)"/>
-            </method>
-            <method name="addAppender (Appender): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="72%  (13/18)"/>
-              <coverage type="line, %" value="92%  (3.7/4)"/>
-            </method>
-            <method name="close (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="84%  (27/32)"/>
-              <coverage type="line, %" value="93%  (8.4/9)"/>
-            </method>
-            <method name="flush (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="88%  (37/42)"/>
-              <coverage type="line, %" value="94%  (9.4/10)"/>
-            </method>
-            <method name="append (LoggingEvent): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="94%  (32/34)"/>
-              <coverage type="line, %" value="88%  (7/8)"/>
-            </method>
-            <method name="&lt;static initializer&gt;">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (6/6)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="GraphingStatisticsAppender (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (29/29)"/>
-              <coverage type="line, %" value="100% (8/8)"/>
-            </method>
-            <method name="activateOptions (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (14/14)"/>
-              <coverage type="line, %" value="100% (4/4)"/>
-            </method>
-            <method name="getAppenderByName (String): GraphingStatisticsAppender">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (5/5)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getDataPointsPerGraph (): int">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getGraphType (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getTagNamesToGraph (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="setGraphType (String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="setTagNamesToGraph (String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-          </class>
-        </srcfile>
-        <srcfile name="StatisticsCsvLayout.java">
-          <coverage type="class, %" value="100% (1/1)"/>
-          <coverage type="method, %" value="80%  (8/10)"/>
-          <coverage type="block, %" value="65%  (45/69)"/>
-          <coverage type="line, %" value="63%  (12/19)"/>
-
-          <class name="StatisticsCsvLayout">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="80%  (8/10)"/>
-            <coverage type="block, %" value="65%  (45/69)"/>
-            <coverage type="line, %" value="63%  (12/19)"/>
-
-            <method name="isPrintNonStatistics (): boolean">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/3)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="setPrintNonStatistics (boolean): void">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/4)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="format (LoggingEvent): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="29%  (7/24)"/>
-              <coverage type="line, %" value="17%  (1/6)"/>
-            </method>
-            <method name="StatisticsCsvLayout (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (12/12)"/>
-              <coverage type="line, %" value="100% (4/4)"/>
-            </method>
-            <method name="activateOptions (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (10/10)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="getColumns (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="ignoresThrowable (): boolean">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="isPivot (): boolean">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="setColumns (String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="setPivot (boolean): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-          </class>
-        </srcfile>
-        <srcfile name="JmxAttributeStatisticsAppender.java">
-          <coverage type="class, %" value="100% (1/1)"/>
-          <coverage type="method, %" value="60%  (9/15)"/>
-          <coverage type="block, %" value="71%  (155/218)"/>
-          <coverage type="line, %" value="74%  (39/53)"/>
-
-          <class name="JmxAttributeStatisticsAppender">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="60%  (9/15)"/>
-            <coverage type="block, %" value="71%  (155/218)"/>
-            <coverage type="line, %" value="74%  (39/53)"/>
-
-            <method name="getCollision (): String">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/3)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="getMBeanName (): String">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/3)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="getNotificationThresholds (): String">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/3)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="getTagNamesToExpose (): String">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/3)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="requiresLayout (): boolean">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/2)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
-            <method name="setMBeanName (String): void">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/4)"/>
-              <coverage type="line, %" value="0%   (0/2)"/>
-            </method>
-            <method name="close (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="15%  (2/13)"/>
-              <coverage type="line, %" value="40%  (2/5)"/>
-            </method>
-            <method name="checkAndRegisterMBean (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="67%  (59/88)"/>
-              <coverage type="line, %" value="81%  (13/16)"/>
-            </method>
-            <method name="activateOptions (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="92%  (56/61)"/>
-              <coverage type="line, %" value="91%  (10/11)"/>
-            </method>
-            <method name="JmxAttributeStatisticsAppender (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (9/9)"/>
-              <coverage type="line, %" value="100% (3/3)"/>
-            </method>
-            <method name="append (LoggingEvent): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (15/15)"/>
-              <coverage type="line, %" value="100% (4/4)"/>
-            </method>
-            <method name="getMBeanServer (): MBeanServer">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="setCollision (String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="setNotificationThresholds (String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="setTagNamesToExpose (String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-          </class>
-        </srcfile>
-        <srcfile name="Log4JStopWatch.java">
-          <coverage type="class, %" value="100% (1/1)"/>
-          <coverage type="method, %" value="93%  (28/30)"/>
-          <coverage type="block, %" value="94%  (204/216)"/>
-          <coverage type="line, %" value="93%  (56/60)"/>
-
-          <class name="Log4JStopWatch">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="93%  (28/30)"/>
-            <coverage type="block, %" value="94%  (204/216)"/>
-            <coverage type="line, %" value="93%  (56/60)"/>
-
-            <method name="setNormalSuffix (String): Log4JStopWatch">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/6)"/>
-              <coverage type="line, %" value="0%   (0/2)"/>
-            </method>
-            <method name="setSlowSuffix (String): Log4JStopWatch">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/6)"/>
-              <coverage type="line, %" value="0%   (0/2)"/>
-            </method>
-            <method name="Log4JStopWatch (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (9/9)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="Log4JStopWatch (Logger): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="Log4JStopWatch (Logger, Level): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="Log4JStopWatch (Logger, Level, Level): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="Log4JStopWatch (String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (9/9)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="Log4JStopWatch (String, Logger): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="Log4JStopWatch (String, Logger, Level): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="Log4JStopWatch (String, Logger, Level, Level): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="Log4JStopWatch (String, String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (9/9)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="Log4JStopWatch (String, String, Logger): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="Log4JStopWatch (String, String, Logger, Level): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="Log4JStopWatch (String, String, Logger, Level, Level): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (10/10)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="Log4JStopWatch (long, long, String, String, Logger, Level, Level): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (16/16)"/>
-              <coverage type="line, %" value="100% (5/5)"/>
-            </method>
-            <method name="clone (): Log4JStopWatch">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getExceptionPriority (): Level">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getLogger (): Logger">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getNormalPriority (): Level">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="isLogging (): boolean">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (6/6)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="log (String, Throwable): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (13/13)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="readObject (ObjectInputStream): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (3/3)"/>
-            </method>
-            <method name="setExceptionPriority (Level): Log4JStopWatch">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (5/5)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="setLogger (Logger): Log4JStopWatch">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (5/5)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="setMessage (String): Log4JStopWatch">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (6/6)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="setNormalAndSlowSuffixesEnabled (boolean): Log4JStopWatch">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (6/6)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="setNormalPriority (Level): Log4JStopWatch">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (5/5)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="setTag (String): Log4JStopWatch">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (6/6)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="setTimeThreshold (long): Log4JStopWatch">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (6/6)"/>
-              <coverage type="line, %" value="100% (2/2)"/>
-            </method>
-            <method name="writeObject (ObjectOutputStream): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (3/3)"/>
-            </method>
-          </class>
-        </srcfile>
-      </package>
-      <package name="org.jperf.helpers">
+      <package name="net.jperf.helpers">
         <coverage type="class, %" value="79%  (34/43)"/>
         <coverage type="method, %" value="79%  (146/184)"/>
-        <coverage type="block, %" value="66%  (2399/3631)"/>
-        <coverage type="line, %" value="69%  (493.6/720)"/>
+        <coverage type="block, %" value="66%  (2397/3631)"/>
+        <coverage type="line, %" value="69%  (493.3/720)"/>
 
         <srcfile name="GroupedTimingStatisticsJsonFormatter.java">
           <coverage type="class, %" value="0%   (0/3)"/>
@@ -2398,100 +1727,11 @@
             </method>
           </class>
         </srcfile>
-        <srcfile name="AcceptableRangeConfiguration.java">
-          <coverage type="class, %" value="100% (1/1)"/>
-          <coverage type="method, %" value="100% (15/15)"/>
-          <coverage type="block, %" value="96%  (312/324)"/>
-          <coverage type="line, %" value="96%  (51.7/54)"/>
-
-          <class name="AcceptableRangeConfiguration">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (15/15)"/>
-            <coverage type="block, %" value="96%  (312/324)"/>
-            <coverage type="line, %" value="96%  (51.7/54)"/>
-
-            <method name="clone (): AcceptableRangeConfiguration">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="40%  (4/10)"/>
-              <coverage type="line, %" value="33%  (1/3)"/>
-            </method>
-            <method name="equals (Object): boolean">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="90%  (38/42)"/>
-              <coverage type="line, %" value="97%  (7.8/8)"/>
-            </method>
-            <method name="hashCode (): int">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="96%  (53/55)"/>
-              <coverage type="line, %" value="98%  (5.9/6)"/>
-            </method>
-            <method name="&lt;static initializer&gt;">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="AcceptableRangeConfiguration (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (9/9)"/>
-              <coverage type="line, %" value="100% (3/3)"/>
-            </method>
-            <method name="AcceptableRangeConfiguration (String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (91/91)"/>
-              <coverage type="line, %" value="100% (18/18)"/>
-            </method>
-            <method name="AcceptableRangeConfiguration (String, double, double): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (18/18)"/>
-              <coverage type="line, %" value="100% (7/7)"/>
-            </method>
-            <method name="getAttributeName (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getMaxValue (): double">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getMinValue (): double">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="isInRange (double): boolean">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (14/14)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="setAttributeName (String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="setMaxValue (double): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="setMinValue (double): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="toString (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (60/60)"/>
-              <coverage type="line, %" value="100% (5/5)"/>
-            </method>
-          </class>
-        </srcfile>
         <srcfile name="StatsValueRetriever.java">
           <coverage type="class, %" value="100% (7/7)"/>
           <coverage type="method, %" value="100% (26/26)"/>
-          <coverage type="block, %" value="96%  (165/171)"/>
-          <coverage type="line, %" value="98%  (34.4/35)"/>
+          <coverage type="block, %" value="95%  (163/171)"/>
+          <coverage type="line, %" value="98%  (34.1/35)"/>
 
           <class name="StatsValueRetriever$2">
             <coverage type="class, %" value="100% (1/1)"/>
@@ -2532,6 +1772,33 @@
               <coverage type="line, %" value="75%  (0.8/1)"/>
             </method>
             <method name="StatsValueRetriever$3 (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueClass (): Class">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueName (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+          <class name="StatsValueRetriever$4">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (4/4)"/>
+            <coverage type="block, %" value="87%  (13/15)"/>
+            <coverage type="line, %" value="94%  (3.8/4)"/>
+
+            <method name="getStatsValue (TimingStatistics, long): Number">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="75%  (6/8)"/>
+              <coverage type="line, %" value="75%  (0.8/1)"/>
+            </method>
+            <method name="StatsValueRetriever$4 (): void">
               <coverage type="method, %" value="100% (1/1)"/>
               <coverage type="block, %" value="100% (3/3)"/>
               <coverage type="line, %" value="100% (1/1)"/>
@@ -2618,33 +1885,6 @@
               <coverage type="line, %" value="100% (1/1)"/>
             </method>
           </class>
-          <class name="StatsValueRetriever$4">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (4/4)"/>
-            <coverage type="block, %" value="100% (15/15)"/>
-            <coverage type="line, %" value="100% (4/4)"/>
-
-            <method name="StatsValueRetriever$4 (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getStatsValue (TimingStatistics, long): Number">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueClass (): Class">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueName (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-          </class>
           <class name="StatsValueRetriever$5">
             <coverage type="class, %" value="100% (1/1)"/>
             <coverage type="method, %" value="100% (4/4)"/>
@@ -2670,6 +1910,95 @@
               <coverage type="method, %" value="100% (1/1)"/>
               <coverage type="block, %" value="100% (2/2)"/>
               <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="AcceptableRangeConfiguration.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="100% (15/15)"/>
+          <coverage type="block, %" value="96%  (312/324)"/>
+          <coverage type="line, %" value="96%  (51.7/54)"/>
+
+          <class name="AcceptableRangeConfiguration">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (15/15)"/>
+            <coverage type="block, %" value="96%  (312/324)"/>
+            <coverage type="line, %" value="96%  (51.7/54)"/>
+
+            <method name="clone (): AcceptableRangeConfiguration">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="40%  (4/10)"/>
+              <coverage type="line, %" value="33%  (1/3)"/>
+            </method>
+            <method name="equals (Object): boolean">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="90%  (38/42)"/>
+              <coverage type="line, %" value="97%  (7.8/8)"/>
+            </method>
+            <method name="hashCode (): int">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="96%  (53/55)"/>
+              <coverage type="line, %" value="98%  (5.9/6)"/>
+            </method>
+            <method name="&lt;static initializer&gt;">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="AcceptableRangeConfiguration (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (9/9)"/>
+              <coverage type="line, %" value="100% (3/3)"/>
+            </method>
+            <method name="AcceptableRangeConfiguration (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (91/91)"/>
+              <coverage type="line, %" value="100% (18/18)"/>
+            </method>
+            <method name="AcceptableRangeConfiguration (String, double, double): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (18/18)"/>
+              <coverage type="line, %" value="100% (7/7)"/>
+            </method>
+            <method name="getAttributeName (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getMaxValue (): double">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getMinValue (): double">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="isInRange (double): boolean">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (14/14)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="setAttributeName (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="setMaxValue (double): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="setMinValue (double): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="toString (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (60/60)"/>
+              <coverage type="line, %" value="100% (5/5)"/>
             </method>
           </class>
         </srcfile>
@@ -2869,7 +2198,678 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf.javalog.aop">
+      <package name="net.jperf.log4j">
+        <coverage type="class, %" value="100% (7/7)"/>
+        <coverage type="method, %" value="69%  (80/116)"/>
+        <coverage type="block, %" value="66%  (865/1302)"/>
+        <coverage type="line, %" value="71%  (235.3/331)"/>
+
+        <srcfile name="AsyncCoalescingStatisticsAppender.java">
+          <coverage type="class, %" value="100% (3/3)"/>
+          <coverage type="method, %" value="57%  (21/37)"/>
+          <coverage type="block, %" value="56%  (241/434)"/>
+          <coverage type="line, %" value="62%  (67.9/109)"/>
+
+          <class name="AsyncCoalescingStatisticsAppender">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="47%  (14/30)"/>
+            <coverage type="block, %" value="49%  (169/342)"/>
+            <coverage type="line, %" value="54%  (45.6/84)"/>
+
+            <method name="getAllAppenders (): Enumeration">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/16)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="getAppender (String): Appender">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/17)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="getDownstreamLogLevel (): String">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/4)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="getQueueSize (): int">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/4)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="getShutdownWaitMillis (): long">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/4)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="getStopWatchParserClassName (): String">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/4)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="isAttached (Appender): boolean">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/17)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="isCreateRollupStatistics (): boolean">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/4)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="removeAllAppenders (): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/17)"/>
+              <coverage type="line, %" value="0%   (0/4)"/>
+            </method>
+            <method name="removeAppender (Appender): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/18)"/>
+              <coverage type="line, %" value="0%   (0/4)"/>
+            </method>
+            <method name="removeAppender (String): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/18)"/>
+              <coverage type="line, %" value="0%   (0/4)"/>
+            </method>
+            <method name="requiresLayout (): boolean">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/2)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="setCreateRollupStatistics (boolean): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/5)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="setDownstreamLogLevel (String): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/5)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="setShutdownWaitMillis (long): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/5)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="setStopWatchParserClassName (String): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/5)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="addAppender (Appender): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="72%  (13/18)"/>
+              <coverage type="line, %" value="92%  (3.7/4)"/>
+            </method>
+            <method name="close (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="76%  (71/93)"/>
+              <coverage type="line, %" value="87%  (19/22)"/>
+            </method>
+            <method name="activateOptions (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="95%  (21/22)"/>
+              <coverage type="line, %" value="98%  (4.9/5)"/>
+            </method>
+            <method name="AsyncCoalescingStatisticsAppender (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (18/18)"/>
+              <coverage type="line, %" value="100% (6/6)"/>
+            </method>
+            <method name="access$000 (AsyncCoalescingStatisticsAppender): boolean">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="access$100 (AsyncCoalescingStatisticsAppender): Level">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="access$200 (AsyncCoalescingStatisticsAppender): AppenderAttachableImpl">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="append (LoggingEvent): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (7/7)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="getNumDiscardedMessages (): int">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getTimeSlice (): long">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="newGenericAsyncCoalescingStatisticsAppender (): GenericAsyncCoalescingStatisticsAppender">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="setName (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (3/3)"/>
+            </method>
+            <method name="setQueueSize (int): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (5/5)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="setTimeSlice (long): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (5/5)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+          </class>
+          <class name="AsyncCoalescingStatisticsAppender$1">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (3/3)"/>
+            <coverage type="block, %" value="75%  (43/57)"/>
+            <coverage type="line, %" value="86%  (12.8/15)"/>
+
+            <method name="handle (GroupedTimingStatistics): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="69%  (31/45)"/>
+              <coverage type="line, %" value="82%  (9.8/12)"/>
+            </method>
+            <method name="AsyncCoalescingStatisticsAppender$1 (AsyncCoalescingStatisticsAppender): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (6/6)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="error (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (6/6)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+          </class>
+          <class name="AsyncCoalescingStatisticsAppender$ShutdownHook">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (4/4)"/>
+            <coverage type="block, %" value="83%  (29/35)"/>
+            <coverage type="line, %" value="95%  (10.4/11)"/>
+
+            <method name="run (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="71%  (15/21)"/>
+              <coverage type="line, %" value="88%  (4.4/5)"/>
+            </method>
+            <method name="AsyncCoalescingStatisticsAppender$ShutdownHook (AsyncCoalescingStatisticsAppender): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (7/7)"/>
+              <coverage type="line, %" value="100% (3/3)"/>
+            </method>
+            <method name="getAppender (): AsyncCoalescingStatisticsAppender">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="setAppender (AsyncCoalescingStatisticsAppender): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="GraphingStatisticsAppender.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="58%  (14/24)"/>
+          <coverage type="block, %" value="58%  (210/365)"/>
+          <coverage type="line, %" value="65%  (58.4/90)"/>
+
+          <class name="GraphingStatisticsAppender">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="58%  (14/24)"/>
+            <coverage type="block, %" value="58%  (210/365)"/>
+            <coverage type="line, %" value="65%  (58.4/90)"/>
+
+            <method name="getAllAppenders (): Enumeration">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/16)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="getAllGraphingStatisticsAppenders (): Collection">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/4)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="getAppender (String): Appender">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/17)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="getChartGenerator (): StatisticsChartGenerator">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="isAttached (Appender): boolean">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/17)"/>
+              <coverage type="line, %" value="0%   (0/3)"/>
+            </method>
+            <method name="removeAllAppenders (): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/17)"/>
+              <coverage type="line, %" value="0%   (0/4)"/>
+            </method>
+            <method name="removeAppender (Appender): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/18)"/>
+              <coverage type="line, %" value="0%   (0/4)"/>
+            </method>
+            <method name="removeAppender (String): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/18)"/>
+              <coverage type="line, %" value="0%   (0/4)"/>
+            </method>
+            <method name="requiresLayout (): boolean">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/2)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="setDataPointsPerGraph (int): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/11)"/>
+              <coverage type="line, %" value="0%   (0/4)"/>
+            </method>
+            <method name="createChartGenerator (): StatisticsChartGenerator">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="67%  (30/45)"/>
+              <coverage type="line, %" value="89%  (8/9)"/>
+            </method>
+            <method name="addAppender (Appender): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="72%  (13/18)"/>
+              <coverage type="line, %" value="92%  (3.7/4)"/>
+            </method>
+            <method name="close (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="84%  (27/32)"/>
+              <coverage type="line, %" value="93%  (8.4/9)"/>
+            </method>
+            <method name="flush (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="88%  (37/42)"/>
+              <coverage type="line, %" value="94%  (9.4/10)"/>
+            </method>
+            <method name="append (LoggingEvent): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="94%  (32/34)"/>
+              <coverage type="line, %" value="88%  (7/8)"/>
+            </method>
+            <method name="&lt;static initializer&gt;">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (6/6)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="GraphingStatisticsAppender (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (29/29)"/>
+              <coverage type="line, %" value="100% (8/8)"/>
+            </method>
+            <method name="activateOptions (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (14/14)"/>
+              <coverage type="line, %" value="100% (4/4)"/>
+            </method>
+            <method name="getAppenderByName (String): GraphingStatisticsAppender">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (5/5)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getDataPointsPerGraph (): int">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getGraphType (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getTagNamesToGraph (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="setGraphType (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="setTagNamesToGraph (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="StatisticsCsvLayout.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="80%  (8/10)"/>
+          <coverage type="block, %" value="65%  (45/69)"/>
+          <coverage type="line, %" value="63%  (12/19)"/>
+
+          <class name="StatisticsCsvLayout">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="80%  (8/10)"/>
+            <coverage type="block, %" value="65%  (45/69)"/>
+            <coverage type="line, %" value="63%  (12/19)"/>
+
+            <method name="isPrintNonStatistics (): boolean">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="setPrintNonStatistics (boolean): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/4)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="format (LoggingEvent): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="29%  (7/24)"/>
+              <coverage type="line, %" value="17%  (1/6)"/>
+            </method>
+            <method name="StatisticsCsvLayout (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (12/12)"/>
+              <coverage type="line, %" value="100% (4/4)"/>
+            </method>
+            <method name="activateOptions (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (10/10)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="getColumns (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="ignoresThrowable (): boolean">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="isPivot (): boolean">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="setColumns (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="setPivot (boolean): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="JmxAttributeStatisticsAppender.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="60%  (9/15)"/>
+          <coverage type="block, %" value="76%  (165/218)"/>
+          <coverage type="line, %" value="77%  (41/53)"/>
+
+          <class name="JmxAttributeStatisticsAppender">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="60%  (9/15)"/>
+            <coverage type="block, %" value="76%  (165/218)"/>
+            <coverage type="line, %" value="77%  (41/53)"/>
+
+            <method name="getCollision (): String">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="getMBeanName (): String">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="getNotificationThresholds (): String">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="getTagNamesToExpose (): String">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/3)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="requiresLayout (): boolean">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/2)"/>
+              <coverage type="line, %" value="0%   (0/1)"/>
+            </method>
+            <method name="setMBeanName (String): void">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/4)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="checkAndRegisterMBean (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="67%  (59/88)"/>
+              <coverage type="line, %" value="81%  (13/16)"/>
+            </method>
+            <method name="activateOptions (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="92%  (56/61)"/>
+              <coverage type="line, %" value="91%  (10/11)"/>
+            </method>
+            <method name="close (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="92%  (12/13)"/>
+              <coverage type="line, %" value="80%  (4/5)"/>
+            </method>
+            <method name="JmxAttributeStatisticsAppender (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (9/9)"/>
+              <coverage type="line, %" value="100% (3/3)"/>
+            </method>
+            <method name="append (LoggingEvent): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (15/15)"/>
+              <coverage type="line, %" value="100% (4/4)"/>
+            </method>
+            <method name="getMBeanServer (): MBeanServer">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="setCollision (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="setNotificationThresholds (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="setTagNamesToExpose (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="Log4JStopWatch.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="93%  (28/30)"/>
+          <coverage type="block, %" value="94%  (204/216)"/>
+          <coverage type="line, %" value="93%  (56/60)"/>
+
+          <class name="Log4JStopWatch">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="93%  (28/30)"/>
+            <coverage type="block, %" value="94%  (204/216)"/>
+            <coverage type="line, %" value="93%  (56/60)"/>
+
+            <method name="setNormalSuffix (String): Log4JStopWatch">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="setSlowSuffix (String): Log4JStopWatch">
+              <coverage type="method, %" value="0%   (0/1)"/>
+              <coverage type="block, %" value="0%   (0/6)"/>
+              <coverage type="line, %" value="0%   (0/2)"/>
+            </method>
+            <method name="Log4JStopWatch (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (9/9)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="Log4JStopWatch (Logger): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="Log4JStopWatch (Logger, Level): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="Log4JStopWatch (Logger, Level, Level): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="Log4JStopWatch (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (9/9)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="Log4JStopWatch (String, Logger): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="Log4JStopWatch (String, Logger, Level): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="Log4JStopWatch (String, Logger, Level, Level): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="Log4JStopWatch (String, String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (9/9)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="Log4JStopWatch (String, String, Logger): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="Log4JStopWatch (String, String, Logger, Level): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="Log4JStopWatch (String, String, Logger, Level, Level): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (10/10)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="Log4JStopWatch (long, long, String, String, Logger, Level, Level): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (16/16)"/>
+              <coverage type="line, %" value="100% (5/5)"/>
+            </method>
+            <method name="clone (): Log4JStopWatch">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getExceptionPriority (): Level">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getLogger (): Logger">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getNormalPriority (): Level">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="isLogging (): boolean">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (6/6)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="log (String, Throwable): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (13/13)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="readObject (ObjectInputStream): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (3/3)"/>
+            </method>
+            <method name="setExceptionPriority (Level): Log4JStopWatch">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (5/5)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="setLogger (Logger): Log4JStopWatch">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (5/5)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="setMessage (String): Log4JStopWatch">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (6/6)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="setNormalAndSlowSuffixesEnabled (boolean): Log4JStopWatch">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (6/6)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="setNormalPriority (Level): Log4JStopWatch">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (5/5)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="setTag (String): Log4JStopWatch">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (6/6)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="setTimeThreshold (long): Log4JStopWatch">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (6/6)"/>
+              <coverage type="line, %" value="100% (2/2)"/>
+            </method>
+            <method name="writeObject (ObjectOutputStream): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (3/3)"/>
+            </method>
+          </class>
+        </srcfile>
+      </package>
+      <package name="net.jperf.javalog.aop">
         <coverage type="class, %" value="67%  (2/3)"/>
         <coverage type="method, %" value="67%  (4/6)"/>
         <coverage type="block, %" value="67%  (28/42)"/>
@@ -2948,7 +2948,7 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf.log4j.aop">
+      <package name="net.jperf.log4j.aop">
         <coverage type="class, %" value="67%  (2/3)"/>
         <coverage type="method, %" value="67%  (4/6)"/>
         <coverage type="block, %" value="67%  (30/45)"/>
@@ -3027,7 +3027,7 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf.slf4j.aop">
+      <package name="net.jperf.slf4j.aop">
         <coverage type="class, %" value="67%  (2/3)"/>
         <coverage type="method, %" value="67%  (4/6)"/>
         <coverage type="block, %" value="67%  (28/42)"/>
@@ -3106,7 +3106,7 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf">
+      <package name="net.jperf">
         <coverage type="class, %" value="100% (7/7)"/>
         <coverage type="method, %" value="90%  (99/110)"/>
         <coverage type="block, %" value="80%  (1661/2079)"/>
@@ -3761,23 +3761,23 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf.slf4j">
+      <package name="net.jperf.slf4j">
         <coverage type="class, %" value="100% (1/1)"/>
         <coverage type="method, %" value="94%  (32/34)"/>
-        <coverage type="block, %" value="83%  (288/345)"/>
-        <coverage type="line, %" value="81%  (78.8/97)"/>
+        <coverage type="block, %" value="85%  (294/345)"/>
+        <coverage type="line, %" value="83%  (80.8/97)"/>
 
         <srcfile name="Slf4JStopWatch.java">
           <coverage type="class, %" value="100% (1/1)"/>
           <coverage type="method, %" value="94%  (32/34)"/>
-          <coverage type="block, %" value="83%  (288/345)"/>
-          <coverage type="line, %" value="81%  (78.8/97)"/>
+          <coverage type="block, %" value="85%  (294/345)"/>
+          <coverage type="line, %" value="83%  (80.8/97)"/>
 
           <class name="Slf4JStopWatch">
             <coverage type="class, %" value="100% (1/1)"/>
             <coverage type="method, %" value="94%  (32/34)"/>
-            <coverage type="block, %" value="83%  (288/345)"/>
-            <coverage type="line, %" value="81%  (78.8/97)"/>
+            <coverage type="block, %" value="85%  (294/345)"/>
+            <coverage type="line, %" value="83%  (80.8/97)"/>
 
             <method name="setNormalSuffix (String): Slf4JStopWatch">
               <coverage type="method, %" value="0%   (0/1)"/>
@@ -3791,8 +3791,8 @@
             </method>
             <method name="log (String, Throwable, int): void">
               <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="38%  (15/40)"/>
-              <coverage type="line, %" value="46%  (6/13)"/>
+              <coverage type="block, %" value="52%  (21/40)"/>
+              <coverage type="line, %" value="62%  (8/13)"/>
             </method>
             <method name="closestKnownLevel (int): int">
               <coverage type="method, %" value="100% (1/1)"/>
@@ -3952,7 +3952,7 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf.javalog">
+      <package name="net.jperf.javalog">
         <coverage type="class, %" value="25%  (1/4)"/>
         <coverage type="method, %" value="67%  (29/43)"/>
         <coverage type="block, %" value="88%  (241/275)"/>
@@ -4230,7 +4230,7 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf.aop">
+      <package name="net.jperf.aop">
         <coverage type="class, %" value="100% (8/8)"/>
         <coverage type="method, %" value="95%  (41/43)"/>
         <coverage type="block, %" value="91%  (635/696)"/>
@@ -4550,7 +4550,7 @@
           </class>
         </srcfile>
       </package>
-      <package name="org.jperf.chart">
+      <package name="net.jperf.chart">
         <coverage type="class, %" value="100% (1/1)"/>
         <coverage type="method, %" value="56%  (10/18)"/>
         <coverage type="block, %" value="93%  (619/668)"/>
