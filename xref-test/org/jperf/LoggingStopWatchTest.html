@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>LoggingStopWatchTest xref</title>
+<link type="text/css" rel="stylesheet" href="../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../testapidocs/org/jperf/LoggingStopWatchTest.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/* Copyright (c) 2008-2009 HomeAway, Inc.</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * All rights reserved.  <a href="http://www.perf4j.or" target="alexandria_uri">http://www.perf4j.or</a>g</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> * Licensed under the Apache License, Version 2.0 (the "License");</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * you may not use this file except in compliance with the License.</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * You may obtain a copy of the License at</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *      <a href="http://www.apache.org/licenses/LICENSE-2." target="alexandria_uri">http://www.apache.org/licenses/LICENSE-2.</a>0</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * Unless required by applicable law or agreed to in writing, software</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * distributed under the License is distributed on an "AS IS" BASIS,</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * See the License for the specific language governing permissions and</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> * limitations under the License.</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">package</strong> org.jperf;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> junit.framework.TestCase;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> org.apache.commons.io.output.ByteArrayOutputStream;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> java.io.ByteArrayInputStream;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> java.io.ObjectInputStream;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> java.io.ObjectOutputStream;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> java.io.PrintStream;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment"> * Tests the LoggingStopWatch. Can also be used to test subclasses if the loggers are set up to log to stderr.</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../org/jperf/LoggingStopWatchTest.html">LoggingStopWatchTest</a> <strong class="jxr_keyword">extends</strong> TestCase {
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      <strong class="jxr_keyword">protected</strong> PrintStream realErr;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      <strong class="jxr_keyword">protected</strong> ByteArrayOutputStream fakeErr;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> setUp() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>          realErr = System.err;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>          fakeErr = <strong class="jxr_keyword">new</strong> ByteArrayOutputStream();
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>          System.setErr(<strong class="jxr_keyword">new</strong> PrintStream(fakeErr, <strong class="jxr_keyword">true</strong> <em class="jxr_comment">/*autoflush*/</em>));
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>      }
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> tearDown() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>          System.setErr(realErr);
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>      }
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_javadoccomment">     * Tests the StopWatch. This method is designed in such a way that it should be used to test subclasses as well</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_javadoccomment">     * if createStopWatch and checkProperties are properly implemented.</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testStopWatch() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>          checkProperties(createStopWatch(<strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>                          StopWatch.DEFAULT_LOGGER_NAME, <span class="jxr_string">"INFO"</span>, <span class="jxr_string">"WARN"</span>, <span class="jxr_string">""</span>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          checkProperties(createStopWatch(<strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <span class="jxr_string">"tag"</span>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>                          StopWatch.DEFAULT_LOGGER_NAME, <span class="jxr_string">"INFO"</span>, <span class="jxr_string">"WARN"</span>, <span class="jxr_string">"tag"</span>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          checkProperties(createStopWatch(<strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <span class="jxr_string">"tag2"</span>, <span class="jxr_string">"message2"</span>),
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>                          StopWatch.DEFAULT_LOGGER_NAME, <span class="jxr_string">"INFO"</span>, <span class="jxr_string">"WARN"</span>, <span class="jxr_string">"tag2"</span>, <span class="jxr_string">"message2"</span>);
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          checkProperties(createStopWatch(<span class="jxr_string">"org.jperf.TestLogger"</span>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>                          <span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"INFO"</span>, <span class="jxr_string">"WARN"</span>, <span class="jxr_string">""</span>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          checkProperties(createStopWatch(<span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"DEBUG"</span>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>                          <span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"DEBUG"</span>, <span class="jxr_string">"WARN"</span>, <span class="jxr_string">""</span>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          checkProperties(createStopWatch(<span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"DEBUG"</span>, <span class="jxr_string">"ERROR"</span>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>                          <span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"DEBUG"</span>, <span class="jxr_string">"ERROR"</span>, <span class="jxr_string">""</span>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          checkProperties(createStopWatch(<span class="jxr_string">"org.jperf.TestLogger"</span>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <span class="jxr_string">"taga"</span>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>                          <span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"INFO"</span>, <span class="jxr_string">"WARN"</span>, <span class="jxr_string">"taga"</span>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          checkProperties(createStopWatch(<span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"DEBUG"</span>, <strong class="jxr_keyword">null</strong>, <span class="jxr_string">"tagb"</span>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>                          <span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"DEBUG"</span>, <span class="jxr_string">"WARN"</span>, <span class="jxr_string">"tagb"</span>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          checkProperties(createStopWatch(<span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"DEBUG"</span>, <span class="jxr_string">"ERROR"</span>, <span class="jxr_string">"tagc"</span>, <strong class="jxr_keyword">null</strong>),
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>                          <span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"DEBUG"</span>, <span class="jxr_string">"ERROR"</span>, <span class="jxr_string">"tagc"</span>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          checkProperties(createStopWatch(<span class="jxr_string">"org.jperf.TestLogger"</span>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <span class="jxr_string">"taga"</span>, <span class="jxr_string">"m1"</span>),
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>                          <span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"INFO"</span>, <span class="jxr_string">"WARN"</span>, <span class="jxr_string">"taga"</span>, <span class="jxr_string">"m1"</span>);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          checkProperties(createStopWatch(<span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"DEBUG"</span>, <strong class="jxr_keyword">null</strong>, <span class="jxr_string">"tagb"</span>, <span class="jxr_string">"m2"</span>),
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>                          <span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"DEBUG"</span>, <span class="jxr_string">"WARN"</span>, <span class="jxr_string">"tagb"</span>, <span class="jxr_string">"m2"</span>);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          checkProperties(createStopWatch(<span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"DEBUG"</span>, <span class="jxr_string">"FATAL"</span>, <span class="jxr_string">"tagc"</span>, <span class="jxr_string">"m3"</span>),
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>                          <span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"DEBUG"</span>, <span class="jxr_string">"FATAL"</span>, <span class="jxr_string">"tagc"</span>, <span class="jxr_string">"m3"</span>);
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          checkSerializationAndCloning(createStopWatch(<span class="jxr_string">"org.jperf.TestLogger"</span>, <span class="jxr_string">"DEBUG"</span>, <span class="jxr_string">"WARN"</span>, <span class="jxr_string">"tagd"</span>, <span class="jxr_string">"m4"</span>));
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          LoggingStopWatch stopWatch = createStopWatch(<strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <span class="jxr_string">"tag"</span>, <span class="jxr_string">"messageText"</span>);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          stopWatch.stop();
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>          checkExpectedLogWritten(<span class="jxr_string">"message[messageText]"</span>);
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          stopWatch.stop(<span class="jxr_string">"foo"</span>);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          checkExpectedLogWritten(<span class="jxr_string">"tag[foo]"</span>);
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>          stopWatch.stop(<span class="jxr_string">"you"</span>, <span class="jxr_string">"bar"</span>);
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          checkExpectedLogWritten(<span class="jxr_string">"tag[you] message[bar]"</span>);
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          stopWatch.stop(<strong class="jxr_keyword">new</strong> Exception(<span class="jxr_string">"zoo"</span>));
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          checkExpectedLogWritten(<span class="jxr_string">"java.lang.Exception: zoo"</span>);
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          stopWatch.stop(<span class="jxr_string">"blue"</span>, <strong class="jxr_keyword">new</strong> Exception(<span class="jxr_string">"goo"</span>));
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          checkExpectedLogWritten(<span class="jxr_string">"tag[blue]"</span>, <span class="jxr_string">"java.lang.Exception: goo"</span>);
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          stopWatch.stop(<span class="jxr_string">"loo"</span>, <span class="jxr_string">"car"</span>, <strong class="jxr_keyword">new</strong> Exception(<span class="jxr_string">"moo"</span>));
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          checkExpectedLogWritten(<span class="jxr_string">"tag[loo] message[car]"</span>, <span class="jxr_string">"java.lang.Exception: moo"</span>);
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          stopWatch.lap(<span class="jxr_string">"coo"</span>);
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          checkExpectedLogWritten(<span class="jxr_string">"tag[coo]"</span>);
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          stopWatch.lap(<span class="jxr_string">"ewe"</span>, <span class="jxr_string">"far"</span>);
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          checkExpectedLogWritten(<span class="jxr_string">"tag[ewe] message[far]"</span>);
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          stopWatch.lap(<span class="jxr_string">"poo"</span>, <strong class="jxr_keyword">new</strong> Exception(<span class="jxr_string">"shoe"</span>));
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>          checkExpectedLogWritten(<span class="jxr_string">"tag[poo]"</span>, <span class="jxr_string">"java.lang.Exception: shoe"</span>);
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          stopWatch.lap(<span class="jxr_string">"new"</span>, <span class="jxr_string">"mar"</span>, <strong class="jxr_keyword">new</strong> Exception(<span class="jxr_string">"rue"</span>));
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>          checkExpectedLogWritten(<span class="jxr_string">"tag[new] message[mar]"</span>, <span class="jxr_string">"java.lang.Exception: rue"</span>);
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          <em class="jxr_comment">//test for PERFFORJ-30 - Add capability to set a time threshold in LoggingStopWatch and Profiled annotation</em>
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>          stopWatch.stop();
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>         String fakeErrBefore = fakeErr.toString();
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>         stopWatch.setTimeThreshold(100).start(<span class="jxr_string">"timeThresholdCheck"</span>);
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>         Thread.sleep(10);
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>         stopWatch.stop();
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>         assertEquals(<span class="jxr_string">"Stopwatch log was set when it shouldn't have been"</span>, fakeErrBefore, fakeErr.toString());
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>         <em class="jxr_comment">//now it should get logged after running</em>
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>         stopWatch.start();
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         Thread.sleep(110);
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>         stopWatch.stop();
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>         checkExpectedLogWritten(<span class="jxr_string">"tag[timeThresholdCheck]"</span>);
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> 
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>         customTests();
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>     }
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> 
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> <em class="jxr_javadoccomment">     * Subclasses should override this to test items specific to the subclass of LoggingStopWatch.</em>
+<a class="jxr_linenumber" name="L116" href="#L116">116</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> customTests() {
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>         LoggingStopWatch stopWatch = <strong class="jxr_keyword">new</strong> LoggingStopWatch(0L, 1000L, <span class="jxr_string">"tag"</span>, <span class="jxr_string">"message"</span>);
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>         assertEquals(0L, stopWatch.getStartTime());
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>         assertEquals(1000L, stopWatch.getElapsedTime());
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>         assertEquals(<span class="jxr_string">"tag"</span>, stopWatch.getTag());
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>         assertEquals(<span class="jxr_string">"message"</span>, stopWatch.getMessage());
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> 
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>         assertTrue(stopWatch.isLogging());
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>     }
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> 
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L128" href="#L128">128</a> <em class="jxr_javadoccomment">     * This method is meant to be overridden in such a way that test subclasses return the proper LoggingStopWatch</em>
+<a class="jxr_linenumber" name="L129" href="#L129">129</a> <em class="jxr_javadoccomment">     * subclass implementation.</em>
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>     <strong class="jxr_keyword">protected</strong> LoggingStopWatch createStopWatch(String loggerName,
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>                                                String normalPriorityName,
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>                                                String exceptionPriorityName,
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>                                                String tag,
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>                                                String message) {
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>         <em class="jxr_comment">//main LoggingStopWatch class doesn't care about logger or priorities</em>
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>         <strong class="jxr_keyword">if</strong> (tag == <strong class="jxr_keyword">null</strong> &amp;&amp; message == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> LoggingStopWatch();
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>         }
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>         <strong class="jxr_keyword">if</strong> (message == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> LoggingStopWatch(tag);
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>         }
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> LoggingStopWatch(tag, message);
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>     }
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> 
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L147" href="#L147">147</a> <em class="jxr_javadoccomment">     * Test subclasses should override this method to validate the additional properties.</em>
+<a class="jxr_linenumber" name="L148" href="#L148">148</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> checkProperties(LoggingStopWatch stopWatch,
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>                                    String expectedLoggerName,
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>                                    String expectedNormalPriority,
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>                                    String expectedExceptionPriority,
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>                                    String expectedTag,
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>                                    String expectedMessage) {
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>         assertEquals(expectedTag, stopWatch.getTag());
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>         assertEquals(expectedMessage, stopWatch.getMessage());
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>     }
+<a class="jxr_linenumber" name="L158" href="#L158">158</a> 
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> checkSerializationAndCloning(LoggingStopWatch stopWatch) {
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>         LoggingStopWatch cloneCopy = stopWatch.clone();
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>         assertEquals(stopWatch, cloneCopy);
+<a class="jxr_linenumber" name="L162" href="#L162">162</a> 
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>             ByteArrayOutputStream os = <strong class="jxr_keyword">new</strong> ByteArrayOutputStream();
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>             <strong class="jxr_keyword">new</strong> ObjectOutputStream(os).writeObject(stopWatch);
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>             LoggingStopWatch serializedCopy =
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>                     (LoggingStopWatch) <strong class="jxr_keyword">new</strong> ObjectInputStream(<strong class="jxr_keyword">new</strong> ByteArrayInputStream(os.toByteArray())).readObject();
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>             assertEquals(stopWatch, serializedCopy);
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>             assertEquals(cloneCopy, serializedCopy);
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>         } <strong class="jxr_keyword">catch</strong> (Exception e) {
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>             fail(<span class="jxr_string">"Unexpected Exception: "</span> + e);
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>         }
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>     }
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> 
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> checkExpectedLogWritten(String... textToFind) {
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>         String fakeErrLog = fakeErr.toString();
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>         <strong class="jxr_keyword">for</strong> (String text : textToFind) {
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>             assertTrue(<span class="jxr_string">"'"</span> + text + <span class="jxr_string">"' not found in log "</span> + fakeErrLog, fakeErrLog.indexOf(text) &gt;= 0);
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>         }
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>         fakeErr.reset();
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>     }
+<a class="jxr_linenumber" name="L182" href="#L182">182</a> }
+</pre>
+<hr/>
+<div id="footer">Copyright &#169; 2008&#x2013;2014 <a href="http://github.com/sovaa/jperf">jperf</a>. All rights reserved.</div>
+</body>
+</html>

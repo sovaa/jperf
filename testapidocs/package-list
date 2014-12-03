@@ -1,0 +1,11 @@
+org.jperf
+org.jperf.aop
+org.jperf.chart
+org.jperf.commonslog
+org.jperf.helpers
+org.jperf.javalog
+org.jperf.javalog.aop
+org.jperf.log4j
+org.jperf.log4j.servlet
+org.jperf.logback
+org.jperf.slf4j
