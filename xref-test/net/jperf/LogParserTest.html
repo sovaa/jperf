@@ -6,124 +6,125 @@
 </head>
 <body>
 <div id="overview"><a href="../../../testapidocs/net/jperf/LogParserTest.html">View Javadoc</a></div><pre>
-<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/* Copyright (c) 2008-2009 HomeAway, Inc.</em>
-<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * All rights reserved.  <a href="http://www.perf4j.or" target="alexandria_uri">http://www.perf4j.or</a>g</em>
-<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> *</em>
-<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> * Licensed under the Apache License, Version 2.0 (the "License");</em>
-<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * you may not use this file except in compliance with the License.</em>
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * You may obtain a copy of the License at</em>
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> *</em>
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *      <a href="http://www.apache.org/licenses/LICENSE-2." target="alexandria_uri">http://www.apache.org/licenses/LICENSE-2.</a>0</em>
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> *</em>
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * Unless required by applicable law or agreed to in writing, software</em>
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * distributed under the License is distributed on an "AS IS" BASIS,</em>
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</em>
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * See the License for the specific language governing permissions and</em>
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> * limitations under the License.</em>
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> */</em>
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">package</strong> net.jperf;
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>  
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> org.apache.commons.io.FileUtils;
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>  
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> java.io.*;
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>  
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment"> * Test the LogParser class, as well as the StopWatchLogIterator class and main method.</em>
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../net/jperf/LogParserTest.html">LogParserTest</a> <strong class="jxr_keyword">extends</strong> <a href="../../net/jperf/TimingTestCase.html">TimingTestCase</a> {
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>  
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testLogParserMain() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>          PrintStream realOut = System.out;
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>          ByteArrayOutputStream fakeOut = <strong class="jxr_keyword">new</strong> ByteArrayOutputStream();
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>          System.setOut(<strong class="jxr_keyword">new</strong> PrintStream(fakeOut, <strong class="jxr_keyword">true</strong>));
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>          <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>              <em class="jxr_comment">//usage</em>
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>              realOut.println(<span class="jxr_string">"-- Usage Test --"</span>);
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>              LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"--help"</span>});
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>              realOut.println(fakeOut.toString());
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>              assertTrue(fakeOut.toString().indexOf(<span class="jxr_string">"Usage"</span>) &gt;= 0);
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>              fakeOut.reset();
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>  
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>              <em class="jxr_comment">//log on std in, write to std out</em>
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>              InputStream realIn = System.in;
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>              ByteArrayInputStream fakeIn = <strong class="jxr_keyword">new</strong> ByteArrayInputStream(testLog.getBytes());
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>              System.setIn(fakeIn);
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>              <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>                  realOut.println(<span class="jxr_string">"-- Std in -&gt; Std out Test --"</span>);
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>                  LogParser.runMain(<strong class="jxr_keyword">new</strong> String[0]);
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>                  realOut.println(fakeOut.toString());
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>                  assertTrue(fakeOut.toString().indexOf(<span class="jxr_string">"tag"</span>) &gt;= 0 &amp;&amp;
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>                             fakeOut.toString().indexOf(<span class="jxr_string">"tag2"</span>) &gt;= 0 &amp;&amp;
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>                             fakeOut.toString().indexOf(<span class="jxr_string">"tag3"</span>) &gt;= 0);
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>                  fakeOut.reset();
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>              } <strong class="jxr_keyword">finally</strong> {
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>                  System.setIn(realIn);
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>              }
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>              <em class="jxr_comment">//Log from a file</em>
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>              FileUtils.writeStringToFile(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"./target/logParserTest.log"</span>), testLog);
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>  
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>              <em class="jxr_comment">//log from file, write to std out</em>
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>              realOut.println(<span class="jxr_string">"-- File in -&gt; Std out Test --"</span>);
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>              LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"./target/logParserTest.log"</span>});
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>              realOut.println(fakeOut.toString());
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>              assertTrue(fakeOut.toString().indexOf(<span class="jxr_string">"tag"</span>) &gt;= 0 &amp;&amp;
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>                         fakeOut.toString().indexOf(<span class="jxr_string">"tag2"</span>) &gt;= 0 &amp;&amp;
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>                         fakeOut.toString().indexOf(<span class="jxr_string">"tag3"</span>) &gt;= 0);
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>              fakeOut.reset();
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>  
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>              <em class="jxr_comment">//CSV format test</em>
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>              realOut.println(<span class="jxr_string">"-- File in -&gt; Std out Test with CSV --"</span>);
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>              LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"-f"</span>, <span class="jxr_string">"csv"</span>, <span class="jxr_string">"./target/logParserTest.log"</span>});
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>              realOut.println(fakeOut.toString());
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>              assertTrue(fakeOut.toString().indexOf(<span class="jxr_string">"\&quot;tag\&quot;,"</span>) &gt;= 0 &amp;&amp;
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>                         fakeOut.toString().indexOf(<span class="jxr_string">"\&quot;tag2\&quot;,"</span>) &gt;= 0 &amp;&amp;
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>                         fakeOut.toString().indexOf(<span class="jxr_string">"\&quot;tag3\&quot;,"</span>) &gt;= 0);
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>              fakeOut.reset();
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>  
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>              <em class="jxr_comment">//log from file, write to file</em>
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>              realOut.println(<span class="jxr_string">"-- File in -&gt; File out Test --"</span>);
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>              LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"-o"</span>, <span class="jxr_string">"./target/statistics.out"</span>, <span class="jxr_string">"./target/logParserTest.log"</span>});
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>              String statsOut = FileUtils.readFileToString(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"./target/statistics.out"</span>));
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>              realOut.println(statsOut);
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>              assertTrue(statsOut.indexOf(<span class="jxr_string">"tag"</span>) &gt;= 0 &amp;&amp;
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>                         statsOut.indexOf(<span class="jxr_string">"tag2"</span>) &gt;= 0 &amp;&amp;
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>                         statsOut.indexOf(<span class="jxr_string">"tag3"</span>) &gt;= 0);
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>  
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>              <em class="jxr_comment">//log from file, write to file, different timeslice</em>
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>              realOut.println(<span class="jxr_string">"-- File in -&gt; File out with different timeslice Test --"</span>);
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>              LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"-o"</span>, <span class="jxr_string">"./target/statistics.out"</span>, <span class="jxr_string">"--timeslice"</span>, <span class="jxr_string">"120000"</span>, <span class="jxr_string">"./target/logParserTest.log"</span>});
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>              statsOut = FileUtils.readFileToString(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"./target/statistics.out"</span>));
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>              realOut.println(statsOut);
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>              assertTrue(statsOut.indexOf(<span class="jxr_string">"tag"</span>) &gt;= 0 &amp;&amp;
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>                         statsOut.indexOf(<span class="jxr_string">"tag2"</span>) &gt;= 0 &amp;&amp;
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>                         statsOut.indexOf(<span class="jxr_string">"tag3"</span>) &gt;= 0);
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>  
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>              <em class="jxr_comment">//missing param test</em>
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>              realOut.println(<span class="jxr_string">"-- Missing param test --"</span>);
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>              assertEquals(1, LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"./target/logParserTest.log"</span>, <span class="jxr_string">"-o"</span>}));
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>  
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>              <em class="jxr_comment">//unknown arg test</em>
-<a class="jxr_linenumber" name="L99" href="#L99">99</a>              realOut.println(<span class="jxr_string">"-- Unknown arg test --"</span>);
-<a class="jxr_linenumber" name="L100" href="#L100">100</a>             assertEquals(1, LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"./target/logParserTest.log"</span>, <span class="jxr_string">"--foo"</span>}));
-<a class="jxr_linenumber" name="L101" href="#L101">101</a>             realOut.println(fakeOut);
-<a class="jxr_linenumber" name="L102" href="#L102">102</a>             assertTrue(fakeOut.toString().indexOf(<span class="jxr_string">"Unknown"</span>) &gt;= 0);
-<a class="jxr_linenumber" name="L103" href="#L103">103</a> 
-<a class="jxr_linenumber" name="L104" href="#L104">104</a>             <em class="jxr_comment">//graphing test</em>
-<a class="jxr_linenumber" name="L105" href="#L105">105</a>             realOut.println(<span class="jxr_string">"-- File in -&gt; File out with graphing --"</span>);
-<a class="jxr_linenumber" name="L106" href="#L106">106</a>             LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"-o"</span>, <span class="jxr_string">"./target/statistics.out"</span>,
-<a class="jxr_linenumber" name="L107" href="#L107">107</a>                                            <span class="jxr_string">"-g"</span>, <span class="jxr_string">"./target/perfGraphs.out"</span>,
-<a class="jxr_linenumber" name="L108" href="#L108">108</a>                                            <span class="jxr_string">"./src/test/resources/net/jperf/dummyLog.txt"</span>});
-<a class="jxr_linenumber" name="L109" href="#L109">109</a>             statsOut = FileUtils.readFileToString(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"./target/statistics.out"</span>));
-<a class="jxr_linenumber" name="L110" href="#L110">110</a>             realOut.println(statsOut);
-<a class="jxr_linenumber" name="L111" href="#L111">111</a>             String graphsOut = FileUtils.readFileToString(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"./target/perfGraphs.out"</span>));
-<a class="jxr_linenumber" name="L112" href="#L112">112</a>             realOut.println(graphsOut);
-<a class="jxr_linenumber" name="L113" href="#L113">113</a>             assertTrue(graphsOut.indexOf(<span class="jxr_string">"chtt=TPS"</span>) &gt; 0 &amp;&amp; graphsOut.indexOf(<span class="jxr_string">"chtt=Mean"</span>) &gt; 0);
-<a class="jxr_linenumber" name="L114" href="#L114">114</a>         } <strong class="jxr_keyword">finally</strong> {
-<a class="jxr_linenumber" name="L115" href="#L115">115</a>             System.setOut(realOut);
-<a class="jxr_linenumber" name="L116" href="#L116">116</a>         }
-<a class="jxr_linenumber" name="L117" href="#L117">117</a>     }
-<a class="jxr_linenumber" name="L118" href="#L118">118</a> }
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2008-2015 JPerf</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * All rights reserved.  <a href="http://www.jperf.ne" target="alexandria_uri">http://www.jperf.ne</a>t</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * Licensed under the Apache License, Version 2.0 (the "License");</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * you may not use this file except in compliance with the License.</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * You may obtain a copy of the License at</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> *      <a href="http://www.apache.org/licenses/LICENSE-2." target="alexandria_uri">http://www.apache.org/licenses/LICENSE-2.</a>0</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * Unless required by applicable law or agreed to in writing, software</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * distributed under the License is distributed on an "AS IS" BASIS,</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> * See the License for the specific language governing permissions and</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * limitations under the License.</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">package</strong> net.jperf;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> org.apache.commons.io.FileUtils;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> java.io.*;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment"> * Test the LogParser class, as well as the StopWatchLogIterator class and main method.</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../net/jperf/LogParserTest.html">LogParserTest</a> <strong class="jxr_keyword">extends</strong> <a href="../../net/jperf/TimingTestCase.html">TimingTestCase</a> {
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testLogParserMain() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>          PrintStream realOut = System.out;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>          ByteArrayOutputStream fakeOut = <strong class="jxr_keyword">new</strong> ByteArrayOutputStream();
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>          System.setOut(<strong class="jxr_keyword">new</strong> PrintStream(fakeOut, <strong class="jxr_keyword">true</strong>));
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>          <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>              <em class="jxr_comment">//usage</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>              realOut.println(<span class="jxr_string">"-- Usage Test --"</span>);
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>              LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"--help"</span>});
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>              realOut.println(fakeOut.toString());
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>              assertTrue(fakeOut.toString().indexOf(<span class="jxr_string">"Usage"</span>) &gt;= 0);
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>              fakeOut.reset();
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>              <em class="jxr_comment">//log on std in, write to std out</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>              InputStream realIn = System.in;
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>              ByteArrayInputStream fakeIn = <strong class="jxr_keyword">new</strong> ByteArrayInputStream(testLog.getBytes());
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>              System.setIn(fakeIn);
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>              <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>                  realOut.println(<span class="jxr_string">"-- Std in -&gt; Std out Test --"</span>);
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>                  LogParser.runMain(<strong class="jxr_keyword">new</strong> String[0]);
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>                  realOut.println(fakeOut.toString());
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>                  assertTrue(fakeOut.toString().indexOf(<span class="jxr_string">"tag"</span>) &gt;= 0 &amp;&amp;
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>                             fakeOut.toString().indexOf(<span class="jxr_string">"tag2"</span>) &gt;= 0 &amp;&amp;
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>                             fakeOut.toString().indexOf(<span class="jxr_string">"tag3"</span>) &gt;= 0);
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>                  fakeOut.reset();
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>              } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>                  System.setIn(realIn);
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>              }
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>              <em class="jxr_comment">//Log from a file</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>              FileUtils.writeStringToFile(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"./target/logParserTest.log"</span>), testLog);
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>              <em class="jxr_comment">//log from file, write to std out</em>
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>              realOut.println(<span class="jxr_string">"-- File in -&gt; Std out Test --"</span>);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>              LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"./target/logParserTest.log"</span>});
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>              realOut.println(fakeOut.toString());
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>              assertTrue(fakeOut.toString().indexOf(<span class="jxr_string">"tag"</span>) &gt;= 0 &amp;&amp;
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>                         fakeOut.toString().indexOf(<span class="jxr_string">"tag2"</span>) &gt;= 0 &amp;&amp;
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>                         fakeOut.toString().indexOf(<span class="jxr_string">"tag3"</span>) &gt;= 0);
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>              fakeOut.reset();
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>              <em class="jxr_comment">//CSV format test</em>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>              realOut.println(<span class="jxr_string">"-- File in -&gt; Std out Test with CSV --"</span>);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>              LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"-f"</span>, <span class="jxr_string">"csv"</span>, <span class="jxr_string">"./target/logParserTest.log"</span>});
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>              realOut.println(fakeOut.toString());
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>              assertTrue(fakeOut.toString().indexOf(<span class="jxr_string">"\&quot;tag\&quot;,"</span>) &gt;= 0 &amp;&amp;
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>                         fakeOut.toString().indexOf(<span class="jxr_string">"\&quot;tag2\&quot;,"</span>) &gt;= 0 &amp;&amp;
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>                         fakeOut.toString().indexOf(<span class="jxr_string">"\&quot;tag3\&quot;,"</span>) &gt;= 0);
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>              fakeOut.reset();
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>              <em class="jxr_comment">//log from file, write to file</em>
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>              realOut.println(<span class="jxr_string">"-- File in -&gt; File out Test --"</span>);
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>              LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"-o"</span>, <span class="jxr_string">"./target/statistics.out"</span>, <span class="jxr_string">"./target/logParserTest.log"</span>});
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>              String statsOut = FileUtils.readFileToString(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"./target/statistics.out"</span>));
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>              realOut.println(statsOut);
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>              assertTrue(statsOut.indexOf(<span class="jxr_string">"tag"</span>) &gt;= 0 &amp;&amp;
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>                         statsOut.indexOf(<span class="jxr_string">"tag2"</span>) &gt;= 0 &amp;&amp;
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>                         statsOut.indexOf(<span class="jxr_string">"tag3"</span>) &gt;= 0);
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>              <em class="jxr_comment">//log from file, write to file, different timeslice</em>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>              realOut.println(<span class="jxr_string">"-- File in -&gt; File out with different timeslice Test --"</span>);
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>              LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"-o"</span>, <span class="jxr_string">"./target/statistics.out"</span>, <span class="jxr_string">"--timeslice"</span>, <span class="jxr_string">"120000"</span>, <span class="jxr_string">"./target/logParserTest.log"</span>});
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>              statsOut = FileUtils.readFileToString(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"./target/statistics.out"</span>));
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>              realOut.println(statsOut);
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>              assertTrue(statsOut.indexOf(<span class="jxr_string">"tag"</span>) &gt;= 0 &amp;&amp;
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>                         statsOut.indexOf(<span class="jxr_string">"tag2"</span>) &gt;= 0 &amp;&amp;
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>                         statsOut.indexOf(<span class="jxr_string">"tag3"</span>) &gt;= 0);
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>              <em class="jxr_comment">//missing param test</em>
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>              realOut.println(<span class="jxr_string">"-- Missing param test --"</span>);
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>              assertEquals(1, LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"./target/logParserTest.log"</span>, <span class="jxr_string">"-o"</span>}));
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>  
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>              <em class="jxr_comment">//unknown arg test</em>
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>             realOut.println(<span class="jxr_string">"-- Unknown arg test --"</span>);
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>             assertEquals(1, LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"./target/logParserTest.log"</span>, <span class="jxr_string">"--foo"</span>}));
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>             realOut.println(fakeOut);
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>             assertTrue(fakeOut.toString().indexOf(<span class="jxr_string">"Unknown"</span>) &gt;= 0);
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> 
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>             <em class="jxr_comment">//graphing test</em>
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>             realOut.println(<span class="jxr_string">"-- File in -&gt; File out with graphing --"</span>);
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>             LogParser.runMain(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"-o"</span>, <span class="jxr_string">"./target/statistics.out"</span>,
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>                                            <span class="jxr_string">"-g"</span>, <span class="jxr_string">"./target/perfGraphs.out"</span>,
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>                                            <span class="jxr_string">"./src/test/resources/net/jperf/dummyLog.txt"</span>});
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>             statsOut = FileUtils.readFileToString(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"./target/statistics.out"</span>));
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>             realOut.println(statsOut);
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>             String graphsOut = FileUtils.readFileToString(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"./target/perfGraphs.out"</span>));
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>             realOut.println(graphsOut);
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>             assertTrue(graphsOut.indexOf(<span class="jxr_string">"chtt=TPS"</span>) &gt; 0 &amp;&amp; graphsOut.indexOf(<span class="jxr_string">"chtt=Mean"</span>) &gt; 0);
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>         } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>             System.setOut(realOut);
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>         }
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>     }
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2008&#x2013;2014 <a href="http://github.com/sovaa/jperf">jperf</a>. All rights reserved.</div>
