@@ -5,6 +5,18 @@
     </properties>
 
     <body>
+        <section name="Release 1.0.1 (12/4/2014)">
+            <ol>
+                <li>A bug in an old version of maven-release-plugin caused the snapshot version 0.9.20-SNAPSHOT to be released instead of 1.0.0. The plugin version was updated and a new release, 1.0.1, was released to maven central repository.
+                    See the <a href='https://github.com/sovaa/jperf/compare/v1.0.0...v1.0.1'>commits on github</a>.</li>
+            </ol>
+        </section>
+        <section name="Release 1.0.0 (12/4/2014)">
+            <ol>
+                <li>New groupId net.jperf instead of com.github.sovaa.
+                    See the <a href='https://github.com/sovaa/jperf/compare/v0.9.19...v1.0.0'>commits on github</a>.</li>
+            </ol>
+        </section>
         <section name="Release 0.9.19 (12/1/2014)">
             <ol>
                 <li>Update project to be releasable on sonatype. First version of JPerf to be available on maven central repository.
