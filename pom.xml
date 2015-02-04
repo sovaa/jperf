@@ -3,7 +3,7 @@
 
     <groupId>net.jperf</groupId>
     <artifactId>jperf</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>JPerf</name>
@@ -53,7 +53,7 @@
         <url>https://github.com/sovaa/jperf</url>
         <connection>scm:git:git://github.com/sovaa/jperf.git</connection>
         <developerConnection>scm:git:git@github.com:sovaa/jperf.git</developerConnection>
-      <tag>v1.0.2</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <properties>
