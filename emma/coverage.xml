@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- EMMA v2.0.5312 report, generated Wed Feb 04 18:47:53 CST 2015 -->
+<?xml version="1.0" encoding="UTF-8"?><!-- EMMA v2.0.5312 report, generated Wed Feb 04 20:12:29 CST 2015 -->
 
 <report>
   <stats>
@@ -12,8 +12,8 @@
     <all name="all classes">
       <coverage type="class, %" value="77%  (71/92)"/>
       <coverage type="method, %" value="70%  (489/697)"/>
-      <coverage type="block, %" value="68%  (7348/10800)"/>
-      <coverage type="line, %" value="69%  (1641.7/2389)"/>
+      <coverage type="block, %" value="68%  (7346/10800)"/>
+      <coverage type="line, %" value="69%  (1641.5/2389)"/>
 
       <package name="net.jperf.commonslog">
         <coverage type="class, %" value="0%   (0/1)"/>
@@ -876,8 +876,8 @@
       <package name="net.jperf.helpers">
         <coverage type="class, %" value="79%  (34/43)"/>
         <coverage type="method, %" value="79%  (146/184)"/>
-        <coverage type="block, %" value="66%  (2399/3631)"/>
-        <coverage type="line, %" value="69%  (493.6/720)"/>
+        <coverage type="block, %" value="66%  (2397/3631)"/>
+        <coverage type="line, %" value="69%  (493.3/720)"/>
 
         <srcfile name="GroupedTimingStatisticsJsonFormatter.java">
           <coverage type="class, %" value="0%   (0/3)"/>
@@ -982,19 +982,19 @@
             </method>
           </class>
         </srcfile>
-        <srcfile name="Perf4jProperties.java">
+        <srcfile name="JperfProperties.java">
           <coverage type="class, %" value="100% (1/1)"/>
           <coverage type="method, %" value="50%  (1/2)"/>
           <coverage type="block, %" value="33%  (20/61)"/>
           <coverage type="line, %" value="38%  (5.7/15)"/>
 
-          <class name="Perf4jProperties">
+          <class name="JperfProperties">
             <coverage type="class, %" value="100% (1/1)"/>
             <coverage type="method, %" value="50%  (1/2)"/>
             <coverage type="block, %" value="33%  (20/61)"/>
             <coverage type="line, %" value="38%  (5.7/15)"/>
 
-            <method name="Perf4jProperties (): void">
+            <method name="JperfProperties (): void">
               <coverage type="method, %" value="0%   (0/1)"/>
               <coverage type="block, %" value="0%   (0/3)"/>
               <coverage type="line, %" value="0%   (0/2)"/>
@@ -1727,100 +1727,11 @@
             </method>
           </class>
         </srcfile>
-        <srcfile name="AcceptableRangeConfiguration.java">
-          <coverage type="class, %" value="100% (1/1)"/>
-          <coverage type="method, %" value="100% (15/15)"/>
-          <coverage type="block, %" value="96%  (312/324)"/>
-          <coverage type="line, %" value="96%  (51.7/54)"/>
-
-          <class name="AcceptableRangeConfiguration">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (15/15)"/>
-            <coverage type="block, %" value="96%  (312/324)"/>
-            <coverage type="line, %" value="96%  (51.7/54)"/>
-
-            <method name="clone (): AcceptableRangeConfiguration">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="40%  (4/10)"/>
-              <coverage type="line, %" value="33%  (1/3)"/>
-            </method>
-            <method name="equals (Object): boolean">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="90%  (38/42)"/>
-              <coverage type="line, %" value="97%  (7.8/8)"/>
-            </method>
-            <method name="hashCode (): int">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="96%  (53/55)"/>
-              <coverage type="line, %" value="98%  (5.9/6)"/>
-            </method>
-            <method name="&lt;static initializer&gt;">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="AcceptableRangeConfiguration (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (9/9)"/>
-              <coverage type="line, %" value="100% (3/3)"/>
-            </method>
-            <method name="AcceptableRangeConfiguration (String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (91/91)"/>
-              <coverage type="line, %" value="100% (18/18)"/>
-            </method>
-            <method name="AcceptableRangeConfiguration (String, double, double): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (18/18)"/>
-              <coverage type="line, %" value="100% (7/7)"/>
-            </method>
-            <method name="getAttributeName (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getMaxValue (): double">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getMinValue (): double">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="isInRange (double): boolean">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (14/14)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="setAttributeName (String): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="setMaxValue (double): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="setMinValue (double): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (4/4)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="toString (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (60/60)"/>
-              <coverage type="line, %" value="100% (5/5)"/>
-            </method>
-          </class>
-        </srcfile>
         <srcfile name="StatsValueRetriever.java">
           <coverage type="class, %" value="100% (7/7)"/>
           <coverage type="method, %" value="100% (26/26)"/>
-          <coverage type="block, %" value="96%  (165/171)"/>
-          <coverage type="line, %" value="98%  (34.4/35)"/>
+          <coverage type="block, %" value="95%  (163/171)"/>
+          <coverage type="line, %" value="98%  (34.1/35)"/>
 
           <class name="StatsValueRetriever$2">
             <coverage type="class, %" value="100% (1/1)"/>
@@ -1861,6 +1772,33 @@
               <coverage type="line, %" value="75%  (0.8/1)"/>
             </method>
             <method name="StatsValueRetriever$3 (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueClass (): Class">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueName (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+          <class name="StatsValueRetriever$4">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (4/4)"/>
+            <coverage type="block, %" value="87%  (13/15)"/>
+            <coverage type="line, %" value="94%  (3.8/4)"/>
+
+            <method name="getStatsValue (TimingStatistics, long): Number">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="75%  (6/8)"/>
+              <coverage type="line, %" value="75%  (0.8/1)"/>
+            </method>
+            <method name="StatsValueRetriever$4 (): void">
               <coverage type="method, %" value="100% (1/1)"/>
               <coverage type="block, %" value="100% (3/3)"/>
               <coverage type="line, %" value="100% (1/1)"/>
@@ -1947,33 +1885,6 @@
               <coverage type="line, %" value="100% (1/1)"/>
             </method>
           </class>
-          <class name="StatsValueRetriever$4">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (4/4)"/>
-            <coverage type="block, %" value="100% (15/15)"/>
-            <coverage type="line, %" value="100% (4/4)"/>
-
-            <method name="StatsValueRetriever$4 (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getStatsValue (TimingStatistics, long): Number">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueClass (): Class">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueName (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-          </class>
           <class name="StatsValueRetriever$5">
             <coverage type="class, %" value="100% (1/1)"/>
             <coverage type="method, %" value="100% (4/4)"/>
@@ -1999,6 +1910,95 @@
               <coverage type="method, %" value="100% (1/1)"/>
               <coverage type="block, %" value="100% (2/2)"/>
               <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="AcceptableRangeConfiguration.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="100% (15/15)"/>
+          <coverage type="block, %" value="96%  (312/324)"/>
+          <coverage type="line, %" value="96%  (51.7/54)"/>
+
+          <class name="AcceptableRangeConfiguration">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (15/15)"/>
+            <coverage type="block, %" value="96%  (312/324)"/>
+            <coverage type="line, %" value="96%  (51.7/54)"/>
+
+            <method name="clone (): AcceptableRangeConfiguration">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="40%  (4/10)"/>
+              <coverage type="line, %" value="33%  (1/3)"/>
+            </method>
+            <method name="equals (Object): boolean">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="90%  (38/42)"/>
+              <coverage type="line, %" value="97%  (7.8/8)"/>
+            </method>
+            <method name="hashCode (): int">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="96%  (53/55)"/>
+              <coverage type="line, %" value="98%  (5.9/6)"/>
+            </method>
+            <method name="&lt;static initializer&gt;">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="AcceptableRangeConfiguration (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (9/9)"/>
+              <coverage type="line, %" value="100% (3/3)"/>
+            </method>
+            <method name="AcceptableRangeConfiguration (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (91/91)"/>
+              <coverage type="line, %" value="100% (18/18)"/>
+            </method>
+            <method name="AcceptableRangeConfiguration (String, double, double): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (18/18)"/>
+              <coverage type="line, %" value="100% (7/7)"/>
+            </method>
+            <method name="getAttributeName (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getMaxValue (): double">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getMinValue (): double">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="isInRange (double): boolean">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (14/14)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="setAttributeName (String): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="setMaxValue (double): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="setMinValue (double): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (4/4)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="toString (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (60/60)"/>
+              <coverage type="line, %" value="100% (5/5)"/>
             </method>
           </class>
         </srcfile>
