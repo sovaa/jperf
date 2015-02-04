@@ -20,13 +20,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class Perf4jProperties {
+public class JperfProperties {
 
     public static final Properties INSTANCE;
 
     static {
         INSTANCE = new PackageParentProperties();
-        final InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("perf4j.properties");
+        final InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("jperf.properties");
         if (is != null) {
             try {
                 INSTANCE.load(is);
@@ -45,7 +45,7 @@ public class Perf4jProperties {
         }
     }
 
-    private Perf4jProperties() {
+    private JperfProperties() {
         // singleton, not instantiable externally
     }
 }

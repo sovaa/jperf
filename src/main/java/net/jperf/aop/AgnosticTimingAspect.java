@@ -22,7 +22,7 @@ import org.apache.commons.jexl.ExpressionFactory;
 import org.apache.commons.jexl.JexlContext;
 import org.apache.commons.jexl.context.HashMapContext;
 import net.jperf.LoggingStopWatch;
-import net.jperf.helpers.Perf4jProperties;
+import net.jperf.helpers.JperfProperties;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -103,8 +103,8 @@ public class AgnosticTimingAspect {
                     joinPoint.getDeclaringClass().getName(),
                     joinPoint.getMethodName());
 
-            tag = Perf4jProperties.INSTANCE.getProperty(tagString);
-            String defaultTag = Perf4jProperties.INSTANCE.getProperty("defaultTag");
+            tag = JperfProperties.INSTANCE.getProperty(tagString);
+            String defaultTag = JperfProperties.INSTANCE.getProperty("tag");
 
             if (tag == null && defaultTag == null) {
                 // fall back to using the name of the method being annotated.
@@ -145,7 +145,7 @@ public class AgnosticTimingAspect {
             // look for properties-based default
             // if the message name is not explicitly set on the Profiled annotation,
             String property = String.format("message.%s.%s", joinPoint.getDeclaringClass().getName(), joinPoint.getMethodName());
-            message = Perf4jProperties.INSTANCE.getProperty(property);
+            message = JperfProperties.INSTANCE.getProperty(property);
 
             if (message == null) {
                 return null;

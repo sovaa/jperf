@@ -23,7 +23,7 @@ import junit.framework.TestCase;
 public class PackageParentPropertiesTest extends TestCase {
 
     // this actually loads a PackageParentProperties singleton
-    final Properties properties = Perf4jProperties.INSTANCE;
+    final Properties properties = JperfProperties.INSTANCE;
 
     public void testFullPath() {
         assertEquals("some tag", properties.get("tag." + getClass().getName()));
