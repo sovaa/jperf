@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- EMMA v2.0.5312 report, generated Wed Feb 04 18:35:26 CST 2015 -->
+<?xml version="1.0" encoding="UTF-8"?><!-- EMMA v2.0.5312 report, generated Wed Feb 04 18:47:53 CST 2015 -->
 
 <report>
   <stats>
@@ -12,8 +12,8 @@
     <all name="all classes">
       <coverage type="class, %" value="77%  (71/92)"/>
       <coverage type="method, %" value="70%  (489/697)"/>
-      <coverage type="block, %" value="68%  (7346/10800)"/>
-      <coverage type="line, %" value="69%  (1641.5/2389)"/>
+      <coverage type="block, %" value="68%  (7348/10800)"/>
+      <coverage type="line, %" value="69%  (1641.7/2389)"/>
 
       <package name="net.jperf.commonslog">
         <coverage type="class, %" value="0%   (0/1)"/>
@@ -876,8 +876,8 @@
       <package name="net.jperf.helpers">
         <coverage type="class, %" value="79%  (34/43)"/>
         <coverage type="method, %" value="79%  (146/184)"/>
-        <coverage type="block, %" value="66%  (2397/3631)"/>
-        <coverage type="line, %" value="69%  (493.3/720)"/>
+        <coverage type="block, %" value="66%  (2399/3631)"/>
+        <coverage type="line, %" value="69%  (493.6/720)"/>
 
         <srcfile name="GroupedTimingStatisticsJsonFormatter.java">
           <coverage type="class, %" value="0%   (0/3)"/>
@@ -1727,192 +1727,6 @@
             </method>
           </class>
         </srcfile>
-        <srcfile name="StatsValueRetriever.java">
-          <coverage type="class, %" value="100% (7/7)"/>
-          <coverage type="method, %" value="100% (26/26)"/>
-          <coverage type="block, %" value="95%  (163/171)"/>
-          <coverage type="line, %" value="98%  (34.1/35)"/>
-
-          <class name="StatsValueRetriever$2">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (4/4)"/>
-            <coverage type="block, %" value="87%  (13/15)"/>
-            <coverage type="line, %" value="94%  (3.8/4)"/>
-
-            <method name="getStatsValue (TimingStatistics, long): Number">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="75%  (6/8)"/>
-              <coverage type="line, %" value="75%  (0.8/1)"/>
-            </method>
-            <method name="StatsValueRetriever$2 (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueClass (): Class">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueName (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-          </class>
-          <class name="StatsValueRetriever$3">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (4/4)"/>
-            <coverage type="block, %" value="87%  (13/15)"/>
-            <coverage type="line, %" value="94%  (3.8/4)"/>
-
-            <method name="getStatsValue (TimingStatistics, long): Number">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="75%  (6/8)"/>
-              <coverage type="line, %" value="75%  (0.8/1)"/>
-            </method>
-            <method name="StatsValueRetriever$3 (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueClass (): Class">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueName (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-          </class>
-          <class name="StatsValueRetriever$4">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (4/4)"/>
-            <coverage type="block, %" value="87%  (13/15)"/>
-            <coverage type="line, %" value="94%  (3.8/4)"/>
-
-            <method name="getStatsValue (TimingStatistics, long): Number">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="75%  (6/8)"/>
-              <coverage type="line, %" value="75%  (0.8/1)"/>
-            </method>
-            <method name="StatsValueRetriever$4 (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueClass (): Class">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueName (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-          </class>
-          <class name="StatsValueRetriever$6">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (4/4)"/>
-            <coverage type="block, %" value="92%  (23/25)"/>
-            <coverage type="line, %" value="98%  (4.9/5)"/>
-
-            <method name="getStatsValue (TimingStatistics, long): Number">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="89%  (16/18)"/>
-              <coverage type="line, %" value="94%  (1.9/2)"/>
-            </method>
-            <method name="StatsValueRetriever$6 (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueClass (): Class">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueName (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-          </class>
-          <class name="StatsValueRetriever">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (2/2)"/>
-            <coverage type="block, %" value="100% (71/71)"/>
-            <coverage type="line, %" value="100% (16/16)"/>
-
-            <method name="&lt;static initializer&gt;">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (68/68)"/>
-              <coverage type="line, %" value="100% (15/15)"/>
-            </method>
-            <method name="StatsValueRetriever (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-          </class>
-          <class name="StatsValueRetriever$1">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (4/4)"/>
-            <coverage type="block, %" value="100% (15/15)"/>
-            <coverage type="line, %" value="100% (4/4)"/>
-
-            <method name="StatsValueRetriever$1 (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getStatsValue (TimingStatistics, long): Number">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueClass (): Class">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueName (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-          </class>
-          <class name="StatsValueRetriever$5">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (4/4)"/>
-            <coverage type="block, %" value="100% (15/15)"/>
-            <coverage type="line, %" value="100% (4/4)"/>
-
-            <method name="StatsValueRetriever$5 (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getStatsValue (TimingStatistics, long): Number">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (8/8)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueClass (): Class">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-            <method name="getValueName (): String">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (2/2)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-          </class>
-        </srcfile>
         <srcfile name="AcceptableRangeConfiguration.java">
           <coverage type="class, %" value="100% (1/1)"/>
           <coverage type="method, %" value="100% (15/15)"/>
@@ -1999,6 +1813,192 @@
               <coverage type="method, %" value="100% (1/1)"/>
               <coverage type="block, %" value="100% (60/60)"/>
               <coverage type="line, %" value="100% (5/5)"/>
+            </method>
+          </class>
+        </srcfile>
+        <srcfile name="StatsValueRetriever.java">
+          <coverage type="class, %" value="100% (7/7)"/>
+          <coverage type="method, %" value="100% (26/26)"/>
+          <coverage type="block, %" value="96%  (165/171)"/>
+          <coverage type="line, %" value="98%  (34.4/35)"/>
+
+          <class name="StatsValueRetriever$2">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (4/4)"/>
+            <coverage type="block, %" value="87%  (13/15)"/>
+            <coverage type="line, %" value="94%  (3.8/4)"/>
+
+            <method name="getStatsValue (TimingStatistics, long): Number">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="75%  (6/8)"/>
+              <coverage type="line, %" value="75%  (0.8/1)"/>
+            </method>
+            <method name="StatsValueRetriever$2 (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueClass (): Class">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueName (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+          <class name="StatsValueRetriever$3">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (4/4)"/>
+            <coverage type="block, %" value="87%  (13/15)"/>
+            <coverage type="line, %" value="94%  (3.8/4)"/>
+
+            <method name="getStatsValue (TimingStatistics, long): Number">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="75%  (6/8)"/>
+              <coverage type="line, %" value="75%  (0.8/1)"/>
+            </method>
+            <method name="StatsValueRetriever$3 (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueClass (): Class">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueName (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+          <class name="StatsValueRetriever$6">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (4/4)"/>
+            <coverage type="block, %" value="92%  (23/25)"/>
+            <coverage type="line, %" value="98%  (4.9/5)"/>
+
+            <method name="getStatsValue (TimingStatistics, long): Number">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="89%  (16/18)"/>
+              <coverage type="line, %" value="94%  (1.9/2)"/>
+            </method>
+            <method name="StatsValueRetriever$6 (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueClass (): Class">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueName (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+          <class name="StatsValueRetriever">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (2/2)"/>
+            <coverage type="block, %" value="100% (71/71)"/>
+            <coverage type="line, %" value="100% (16/16)"/>
+
+            <method name="&lt;static initializer&gt;">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (68/68)"/>
+              <coverage type="line, %" value="100% (15/15)"/>
+            </method>
+            <method name="StatsValueRetriever (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+          <class name="StatsValueRetriever$1">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (4/4)"/>
+            <coverage type="block, %" value="100% (15/15)"/>
+            <coverage type="line, %" value="100% (4/4)"/>
+
+            <method name="StatsValueRetriever$1 (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getStatsValue (TimingStatistics, long): Number">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueClass (): Class">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueName (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+          <class name="StatsValueRetriever$4">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (4/4)"/>
+            <coverage type="block, %" value="100% (15/15)"/>
+            <coverage type="line, %" value="100% (4/4)"/>
+
+            <method name="StatsValueRetriever$4 (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getStatsValue (TimingStatistics, long): Number">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueClass (): Class">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueName (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+          <class name="StatsValueRetriever$5">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (4/4)"/>
+            <coverage type="block, %" value="100% (15/15)"/>
+            <coverage type="line, %" value="100% (4/4)"/>
+
+            <method name="StatsValueRetriever$5 (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getStatsValue (TimingStatistics, long): Number">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueClass (): Class">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="getValueName (): String">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (2/2)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
             </method>
           </class>
         </srcfile>
