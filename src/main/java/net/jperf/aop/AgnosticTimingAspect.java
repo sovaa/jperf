@@ -37,6 +37,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Marcin Zajączkowski, Alex Devine 
  */
 public class AgnosticTimingAspect {
+    private static final String DEFAULT_THRESHOLD_CONFIG_KEY = "net.jperf.threshold.default";
+
     /**
      * This Map is used to cache compiled JEXL expressions. While theoretically unbounded, in reality the number of
      * possible keys is equivalent to the number of unique JEXL expressions created in @Profiled annotations, which
@@ -62,7 +64,9 @@ public class AgnosticTimingAspect {
             return joinPoint.proceed();
         }
 
-        stopWatch.setTimeThreshold(profiled.timeThreshold());
+        long threshold = chooseThreshold(profiled);
+
+        stopWatch.setTimeThreshold(threshold);
         stopWatch.setNormalAndSlowSuffixesEnabled(profiled.normalAndSlowSuffixesEnabled());
 
         Object retVal = null;
@@ -80,6 +84,65 @@ public class AgnosticTimingAspect {
             }
 
             stopWatch.stop(tag, message);
+        }
+    }
+
+    /**
+     * Defaults to 0ms. First checks whether a non-negative value is set on the annotation, and if so will use it,
+     * otherwise
+     */
+    private long chooseThreshold(Profiled profiled) {
+        long thresholdFromAnnotation = profiled.timeThreshold();
+        long thresholdFromConfig = getThresholdFromConfig();
+        long thresholdDefaultValue = getThresholdDefaultValue(profiled);
+
+        // if set on annotation, has higher priority than configured value
+        if (thresholdFromAnnotation > thresholdDefaultValue) {
+            return thresholdFromAnnotation;
+        }
+        if (thresholdFromConfig > thresholdDefaultValue) {
+            return thresholdFromConfig;
+        }
+
+        // after this point, 0 is the default value; thresholdDefaultValue above is -1, just to make it possible to
+        // set no threshold (0ms) to override a configured positive value
+        return 0;
+    }
+
+    /**
+     * "Cache" the default annotation field value so we don't have to do reflection calls for every iteration; is not
+     * changed between runs anyway.
+     */
+    private long getThresholdDefaultValue(Profiled profiled) {
+        String thresholdString = JperfProperties.INSTANCE.getProperty(DEFAULT_THRESHOLD_CONFIG_KEY);
+        if (thresholdString != null) {
+            try {
+                return Long.valueOf(thresholdString);
+            }
+            catch (NumberFormatException e) {
+                // ignore
+            }
+        }
+        try {
+            long thresholdDefault = (Long)profiled.annotationType().getMethod(Profiled.THRESHOLD_FIELD_NAME).getDefaultValue();
+            JperfProperties.INSTANCE.setProperty(DEFAULT_THRESHOLD_CONFIG_KEY, String.valueOf(thresholdDefault));
+        }
+        catch (NoSuchMethodException e) {
+            // ignore
+        }
+        catch (NullPointerException e) {
+            // just means was not set in properties and cast throws NPE, ignore
+        }
+
+        return -1;
+    }
+
+    private long getThresholdFromConfig() {
+        try {
+            return Long.parseLong(JperfProperties.INSTANCE.getProperty(Profiled.THRESHOLD_FIELD_NAME));
+        }
+        catch (Exception e) {
+            return -1;
         }
     }
 

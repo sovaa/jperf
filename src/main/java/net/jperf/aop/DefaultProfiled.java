@@ -45,7 +45,7 @@ public class DefaultProfiled implements Profiled {
 
     public boolean logFailuresSeparately() { return false; }
 
-    public long timeThreshold() { return 0; }
+    public long timeThreshold() { return -1; }
     
     public boolean normalAndSlowSuffixesEnabled() { return false; }
     

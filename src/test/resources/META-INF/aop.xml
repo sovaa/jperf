@@ -4,6 +4,7 @@
 <!-- This file is used by AspectJ to weave in aspects into the jperf test classes -->
 <aspectj>
     <weaver options="-verbose -showWeaveInfo">
+        <include within="net.jperf.aop.AgnosticTimingAspectThresholdTest$TestObject"/>
         <include within="net.jperf.aop.ProfiledObject"/>
         <include within="net.jperf.aop.InMemoryTimingAspect"/>
         <include within="net.jperf.aop.ScopedInMemoryTimingAspect"/>

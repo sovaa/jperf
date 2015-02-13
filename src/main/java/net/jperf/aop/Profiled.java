@@ -35,6 +35,7 @@ import java.lang.annotation.ElementType;
 @Target({ElementType.METHOD, ElementType.CONSTRUCTOR})
 public @interface Profiled {
     public static final String DEFAULT_TAG_NAME = "@@USE_METHOD_NAME";
+    public static final String THRESHOLD_FIELD_NAME = "timeThreshold";
 
     /**
      * The tag that should be set on the {@link net.jperf.StopWatch} when the execution time is logged. If not
@@ -120,7 +121,7 @@ public @interface Profiled {
      *
      * @return The time threshold for logging, in milliseconds.
      */
-    long timeThreshold() default 0;
+    long timeThreshold() default -1;
     
     /**
      * Default is false. When set to true, normalSuffix and slowSuffix values are appended to tags
