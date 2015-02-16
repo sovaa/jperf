@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- EMMA v2.0.5312 report, generated Wed Feb 04 20:12:29 CST 2015 -->
+<?xml version="1.0" encoding="UTF-8"?><!-- EMMA v2.0.5312 report, generated Mon Feb 16 10:40:34 CST 2015 -->
 
 <report>
   <stats>
     <packages value="16"/>
     <classes value="92"/>
-    <methods value="697"/>
+    <methods value="700"/>
     <srcfiles value="58"/>
-    <srclines value="2389"/>
+    <srclines value="2411"/>
   </stats>
   <data>
     <all name="all classes">
       <coverage type="class, %" value="77%  (71/92)"/>
-      <coverage type="method, %" value="70%  (489/697)"/>
-      <coverage type="block, %" value="68%  (7346/10800)"/>
-      <coverage type="line, %" value="69%  (1641.5/2389)"/>
+      <coverage type="method, %" value="70%  (493/700)"/>
+      <coverage type="block, %" value="68%  (7414/10868)"/>
+      <coverage type="line, %" value="69%  (1662.4/2411)"/>
 
       <package name="net.jperf.commonslog">
         <coverage type="class, %" value="0%   (0/1)"/>
@@ -4232,9 +4232,9 @@
       </package>
       <package name="net.jperf.aop">
         <coverage type="class, %" value="100% (8/8)"/>
-        <coverage type="method, %" value="95%  (41/43)"/>
-        <coverage type="block, %" value="91%  (635/696)"/>
-        <coverage type="line, %" value="89%  (122.9/138)"/>
+        <coverage type="method, %" value="98%  (45/46)"/>
+        <coverage type="block, %" value="92%  (703/764)"/>
+        <coverage type="line, %" value="90%  (143.8/160)"/>
 
         <srcfile name="AbstractEjbTimingAspect.java">
           <coverage type="class, %" value="100% (2/2)"/>
@@ -4297,23 +4297,42 @@
             </method>
           </class>
         </srcfile>
+        <srcfile name="ProfiledTimingAspect.java">
+          <coverage type="class, %" value="100% (1/1)"/>
+          <coverage type="method, %" value="100% (2/2)"/>
+          <coverage type="block, %" value="83%  (10/12)"/>
+          <coverage type="line, %" value="75%  (3/4)"/>
+
+          <class name="ProfiledTimingAspect">
+            <coverage type="class, %" value="100% (1/1)"/>
+            <coverage type="method, %" value="100% (2/2)"/>
+            <coverage type="block, %" value="83%  (10/12)"/>
+            <coverage type="line, %" value="75%  (3/4)"/>
+
+            <method name="doPerfLogging (ProceedingJoinPoint, Profiled): Object">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="78%  (7/9)"/>
+              <coverage type="line, %" value="67%  (2/3)"/>
+            </method>
+            <method name="ProfiledTimingAspect (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+          </class>
+        </srcfile>
         <srcfile name="DefaultProfiled.java">
           <coverage type="class, %" value="100% (1/1)"/>
-          <coverage type="method, %" value="82%  (9/11)"/>
-          <coverage type="block, %" value="81%  (22/27)"/>
-          <coverage type="line, %" value="82%  (9/11)"/>
+          <coverage type="method, %" value="91%  (10/11)"/>
+          <coverage type="block, %" value="93%  (25/27)"/>
+          <coverage type="line, %" value="91%  (10/11)"/>
 
           <class name="DefaultProfiled">
             <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="82%  (9/11)"/>
-            <coverage type="block, %" value="81%  (22/27)"/>
-            <coverage type="line, %" value="82%  (9/11)"/>
+            <coverage type="method, %" value="91%  (10/11)"/>
+            <coverage type="block, %" value="93%  (25/27)"/>
+            <coverage type="line, %" value="91%  (10/11)"/>
 
-            <method name="annotationType (): Class">
-              <coverage type="method, %" value="0%   (0/1)"/>
-              <coverage type="block, %" value="0%   (0/3)"/>
-              <coverage type="line, %" value="0%   (0/1)"/>
-            </method>
             <method name="el (): boolean">
               <coverage type="method, %" value="0%   (0/1)"/>
               <coverage type="block, %" value="0%   (0/2)"/>
@@ -4325,6 +4344,11 @@
               <coverage type="line, %" value="100% (1/1)"/>
             </method>
             <method name="DefaultProfiled (): void">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (3/3)"/>
+              <coverage type="line, %" value="100% (1/1)"/>
+            </method>
+            <method name="annotationType (): Class">
               <coverage type="method, %" value="100% (1/1)"/>
               <coverage type="block, %" value="100% (3/3)"/>
               <coverage type="line, %" value="100% (1/1)"/>
@@ -4366,41 +4390,17 @@
             </method>
           </class>
         </srcfile>
-        <srcfile name="ProfiledTimingAspect.java">
-          <coverage type="class, %" value="100% (1/1)"/>
-          <coverage type="method, %" value="100% (2/2)"/>
-          <coverage type="block, %" value="83%  (10/12)"/>
-          <coverage type="line, %" value="75%  (3/4)"/>
-
-          <class name="ProfiledTimingAspect">
-            <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (2/2)"/>
-            <coverage type="block, %" value="83%  (10/12)"/>
-            <coverage type="line, %" value="75%  (3/4)"/>
-
-            <method name="doPerfLogging (ProceedingJoinPoint, Profiled): Object">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="78%  (7/9)"/>
-              <coverage type="line, %" value="67%  (2/3)"/>
-            </method>
-            <method name="ProfiledTimingAspect (): void">
-              <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="100% (3/3)"/>
-              <coverage type="line, %" value="100% (1/1)"/>
-            </method>
-          </class>
-        </srcfile>
         <srcfile name="AgnosticTimingAspect.java">
           <coverage type="class, %" value="100% (1/1)"/>
-          <coverage type="method, %" value="100% (12/12)"/>
-          <coverage type="block, %" value="93%  (467/503)"/>
-          <coverage type="line, %" value="94%  (86.5/92)"/>
+          <coverage type="method, %" value="100% (15/15)"/>
+          <coverage type="block, %" value="93%  (532/571)"/>
+          <coverage type="line, %" value="93%  (106.4/114)"/>
 
           <class name="AgnosticTimingAspect">
             <coverage type="class, %" value="100% (1/1)"/>
-            <coverage type="method, %" value="100% (12/12)"/>
-            <coverage type="block, %" value="93%  (467/503)"/>
-            <coverage type="line, %" value="94%  (86.5/92)"/>
+            <coverage type="method, %" value="100% (15/15)"/>
+            <coverage type="block, %" value="93%  (532/571)"/>
+            <coverage type="line, %" value="93%  (106.4/114)"/>
 
             <method name="getStopWatchTag (Profiled, AbstractJoinPoint, Object, Throwable): String">
               <coverage type="method, %" value="100% (1/1)"/>
@@ -4409,8 +4409,13 @@
             </method>
             <method name="runProfiledMethod (AbstractJoinPoint, Profiled, LoggingStopWatch): Object">
               <coverage type="method, %" value="100% (1/1)"/>
-              <coverage type="block, %" value="86%  (102/119)"/>
-              <coverage type="line, %" value="97%  (14.6/15)"/>
+              <coverage type="block, %" value="86%  (105/122)"/>
+              <coverage type="line, %" value="97%  (15.6/16)"/>
+            </method>
+            <method name="getThresholdDefaultValue (Profiled): long">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="91%  (30/33)"/>
+              <coverage type="line, %" value="79%  (7.9/10)"/>
             </method>
             <method name="getStopWatchMessage (Profiled, AbstractJoinPoint, Object, Throwable): String">
               <coverage type="method, %" value="100% (1/1)"/>
@@ -4437,6 +4442,11 @@
               <coverage type="block, %" value="100% (10/10)"/>
               <coverage type="line, %" value="100% (2/2)"/>
             </method>
+            <method name="chooseThreshold (Profiled): long">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (24/24)"/>
+              <coverage type="line, %" value="100% (8/8)"/>
+            </method>
             <method name="evaluateJexl (String, AbstractJoinPoint, Object, Throwable): String">
               <coverage type="method, %" value="100% (1/1)"/>
               <coverage type="block, %" value="100% (54/54)"/>
@@ -4446,6 +4456,11 @@
               <coverage type="method, %" value="100% (1/1)"/>
               <coverage type="block, %" value="100% (19/19)"/>
               <coverage type="line, %" value="100% (4/4)"/>
+            </method>
+            <method name="getThresholdFromConfig (): long">
+              <coverage type="method, %" value="100% (1/1)"/>
+              <coverage type="block, %" value="100% (8/8)"/>
+              <coverage type="line, %" value="100% (3/3)"/>
             </method>
             <method name="lastCloseBracketIndex (String, int): int">
               <coverage type="method, %" value="100% (1/1)"/>
