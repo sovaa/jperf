@@ -11,7 +11,7 @@ Releases are pushed to the central maven repository and can be included in maven
 <dependency>
     <groupId>com.github.sovaa</groupId>
     <artifactId>jperf</artifactId>
-    <version>0.9.19</version>
+    <version>1.0.3</version>
 </dependency>
 ```
 
