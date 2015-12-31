@@ -9,7 +9,7 @@ Releases are pushed to the central maven repository and can be included in maven
 
 ```
 <dependency>
-    <groupId>com.github.sovaa</groupId>
+    <groupId>net.jperf</groupId>
     <artifactId>jperf</artifactId>
     <version>1.0.3</version>
 </dependency>
