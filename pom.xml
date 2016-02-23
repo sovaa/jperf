@@ -4,7 +4,7 @@
     <groupId>net.jperf</groupId>
     <artifactId>jperf</artifactId>
     <version>1.0.4-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>bundle</packaging>
 
     <name>JPerf</name>
     <description>Performance statistics logging and monitoring toolkit extension to log4j, logback and the java.util.logging framework.</description>
@@ -293,6 +293,8 @@
                 </executions>
             </plugin>
 
+
+		   
             <!-- Generate a jar containing the source files when deploying -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -342,22 +344,21 @@
             </plugin>
 
             <!--
-              Tell the Maven jar plugin to generate multiple jars: one with all the files, then ones that JUST contain
+              Tell the Maven bundle plugin to generate multiple jars: one with all the files, then ones that JUST contain
               the particular logging framework extensions (e.g. log4j, java.util.logging, commons logging or slf4j).
               These separate log4j, javalog, commonslog and slf4j jars are needed when using the AspectJ compiler so
               that only ONE TimingAspect is included.
-
-              Also, tell the jar plugin to make org.per4j.LogParser the main executable class.
+				
+              Also, tell the plugin to make org.per4j.LogParser the main executable class.
+              
+              All jars are OSGi-enabled.
             -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.3.2</version>
-                <!--
-                  The main jar includes all classes and generates a META-INF manifest file that species
-                  LogParser as the jar's main class
-                -->
-                <configuration>
+			<plugin>
+		        <groupId>org.apache.felix</groupId>
+		        <artifactId>maven-bundle-plugin</artifactId>
+		        <version>3.0.1</version>
+		        <extensions>true</extensions>
+		        <configuration>
                     <archive>
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
@@ -366,99 +367,170 @@
                         </manifest>
                     </archive>
                 </configuration>
-                <executions>
-                    <!-- This jar includes only the log4j classes and NOT the other logging framework classes -->
-                    <execution>
-                        <id>log4jAspects</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>log4jonly</classifier>
-                            <excludes>
-                                <exclude>**/javalog/**</exclude>
-                                <exclude>**/commonslog/**</exclude>
-                                <exclude>**/slf4j/**</exclude>
-                                <exclude>**/logback/**</exclude>
-                            </excludes>
-                        </configuration>
-                    </execution>
-                    <!-- This jar includes only the java.util.logging classes and NOT the other logging frameworks -->
-                    <execution>
-                        <id>javalogAspects</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>javalogonly</classifier>
-                            <excludes>
-                                <exclude>**/log4j/**</exclude>
-                                <exclude>**/commonslog/**</exclude>
-                                <exclude>**/slf4j/**</exclude>
-                                <exclude>**/logback/**</exclude>
-                            </excludes>
-                        </configuration>
-                    </execution>
-                    <!-- This jar includes only the commonslog classes and NOT the other logging framework classes -->
-                    <execution>
-                        <id>commonslogAspects</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>commonslogonly</classifier>
-                            <excludes>
-                                <exclude>**/log4j/**</exclude>
-                                <exclude>**/javalog/**</exclude>
-                                <exclude>**/slf4j/**</exclude>
-                                <exclude>**/logback/**</exclude>
-                            </excludes>
-                        </configuration>
-                    </execution>
-                    <!-- This jar includes only the slf4j classes and NOT the other logging framework classes -->
-                    <execution>
-                        <id>slf4jAspects</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>slf4jonly</classifier>
-                            <excludes>
-                                <exclude>**/log4j/**</exclude>
-                                <exclude>**/javalog/**</exclude>
-                                <exclude>**/commonslog/**</exclude>
-                                <exclude>**/logback/**</exclude>
-                            </excludes>
-                        </configuration>
-                    </execution>
-                    <!-- This jar includes the slf4j and logback classes and NOT the other logging framework classes -->
-                    <execution>
-                        <id>logbackAspects</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>logbackonly</classifier>
-                            <excludes>
-                                <exclude>**/log4j/**</exclude>
-                                <exclude>**/javalog/**</exclude>
-                                <exclude>**/commonslog/**</exclude>
-                            </excludes>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
+		        <executions>
+				    <execution>
+				      <id>allAspects</id>
+				      <phase>package</phase>
+				      <goals>    
+				        <goal>bundle</goal>
+				      </goals>
+				      <configuration>
+				          <instructions>
+				            <Import-Package>org.slf4j;provider=paxlogging;resolution:=optional,
+				            *;resolution:=optional,</Import-Package>
+				            <Export-Package>		              
+			                     !net.jperf.helpers.*,                                      
+		                          net.jperf.*
+				           </Export-Package>
+				           <Private-Package>		              
+				                 net.jperf.helpers.*       
+				           </Private-Package>      
+				          </instructions>
+		        		</configuration> 
+				    </execution>
+				    <execution>
+				      <id>slf4jAspects</id>
+				      <phase>package</phase>
+				      <goals>    
+				        <goal>bundle</goal>
+				      </goals>
+				      <configuration>
+				          <classifier>slf4jonly</classifier>
+				          <instructions>
+				            <Import-Package>org.slf4j;provider=paxlogging;resolution:=mandatory,
+				            *;resolution:=optional,</Import-Package>
+				            <Export-Package>		              
+				                 !net.jperf.log4j.*,
+		                         !net.jperf.javalog.*,
+		                         !net.jperf.commonslog.*,
+		                         !net.jperf.logback.*,                                      
+		                          net.jperf.*
+				           </Export-Package>
+				           <Private-Package>		              
+				                 !net.jperf.log4j.*,
+		                         !net.jperf.javalog.*,
+		                         !net.jperf.commonslog.*,
+		                         !net.jperf.logback.*       
+				           </Private-Package>      
+				          </instructions>
+		        		</configuration> 
+				    </execution>
+				    <execution>
+				      <id>log4jAspects</id>
+				      <phase>package</phase>
+				      <goals>    
+				        <goal>bundle</goal>
+				      </goals>
+				      <configuration>
+				          <classifier>log4jonly</classifier>
+				          <instructions>
+				            <Import-Package>org.apache.log4j.*;resolution:=mandatory,
+				            *;resolution:=optional,</Import-Package>
+				            <Export-Package>		              
+				                 !net.jperf.slf4j.*,
+		                         !net.jperf.javalog.*,
+		                         !net.jperf.commonslog.*,
+		                         !net.jperf.logback.*,                                      
+		                          net.jperf.*
+				           </Export-Package>
+				           <Private-Package>		              
+				                 !net.jperf.slf4j.*,
+		                         !net.jperf.javalog.*,
+		                         !net.jperf.commonslog.*,
+		                         !net.jperf.logback.*       
+				           </Private-Package>      
+				          </instructions>
+		        		</configuration> 
+				    </execution>
+				    <execution>
+				      <id>javalogAspects</id>
+				      <phase>package</phase>
+				      <goals>    
+				        <goal>bundle</goal>
+				      </goals>
+				      <configuration>
+				          <classifier>javalogonly</classifier>
+				          <instructions>
+				            <Import-Package>java.util.logging.*;resolution:=mandatory,
+				            *;resolution:=optional,</Import-Package>
+				            <Export-Package>		              
+				                 !net.jperf.log4j.*,
+		                         !net.jperf.slf4j.*,
+		                         !net.jperf.commonslog.*,
+		                         !net.jperf.logback.*,                                      
+		                          net.jperf.*
+				           </Export-Package>
+				           <Private-Package>		              
+				                 !net.jperf.log4j.*,
+		                         !net.jperf.slf4j.*,
+		                         !net.jperf.commonslog.*,
+		                         !net.jperf.logback.*       
+				           </Private-Package>      
+				          </instructions>
+		        		</configuration> 
+				    </execution>
+				    <execution>
+				      <id>commonslogAspects</id>
+				      <phase>package</phase>
+				      <goals>    
+				        <goal>bundle</goal>
+				      </goals>
+				      <configuration>
+				          <classifier>commonslogjonly</classifier>
+				          <instructions>
+				            <Import-Package>org.apache.commons.logging.*;resolution:=mandatory,
+				            *;resolution:=optional,</Import-Package>
+				            <Export-Package>		              
+				                 !net.jperf.log4j.*,
+		                         !net.jperf.javalog.*,
+		                         !net.jperf.slf4j.*,
+		                         !net.jperf.logback.*,                                      
+		                          net.jperf.*
+				           </Export-Package>
+				           <Private-Package>		              
+				                 !net.jperf.log4j.*,
+		                         !net.jperf.javalog.*,
+		                         !net.jperf.slf4j.*,
+		                         !net.jperf.logback.*       
+				           </Private-Package>      
+				          </instructions>
+		        		</configuration> 
+				    </execution>
+				    <execution>
+				      <id>logbackAspects</id>
+				      <phase>package</phase>
+				      <goals>    
+				        <goal>bundle</goal>
+				      </goals>
+				      <configuration>
+				          <classifier>logbackonly</classifier>
+				          <instructions>
+				            <Import-Package>ch.qos.logback.*;resolution:=mandatory,
+				            *;resolution:=optional,</Import-Package>
+				            <Export-Package>		              
+				                 !net.jperf.log4j.*,
+		                         !net.jperf.javalog.*,
+		                         !net.jperf.commonslog.*,
+		                         !net.jperf.slf4j.*,                                      
+		                          net.jperf.*
+				           </Export-Package>
+				           <Private-Package>		              
+				                 !net.jperf.log4j.*,
+		                         !net.jperf.javalog.*,
+		                         !net.jperf.commonslog.*,
+		                         !net.jperf.slf4j.*       
+				           </Private-Package>      
+				          </instructions>
+		        		</configuration> 
+				    </execution>
+				</executions>
+		        
+		      </plugin> 
             <!-- Tell surefire which tests to run, and to fork once when running, and set system properties. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.3</version>
+                <version>2.19.1</version>
                 <inherited>true</inherited>
                 <configuration>
                     <forkMode>once</forkMode>
