@@ -365,28 +365,28 @@
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             <mainClass>net.jperf.LogParser</mainClass>
                         </manifest>
-                    </archive>
+                    </archive>               
                 </configuration>
 		        <executions>
-				    <execution>
-				      <id>allAspects</id>
+		           <execution>
+				      <id>AlljAspects</id>
 				      <phase>package</phase>
 				      <goals>    
 				        <goal>bundle</goal>
 				      </goals>
 				      <configuration>
+				         <!-- Instructions for default bundle -->
 				          <instructions>
-				            <Import-Package>org.slf4j;provider=paxlogging;resolution:=optional,
-				            *;resolution:=optional,</Import-Package>
-				            <Export-Package>		              
-			                     !net.jperf.helpers.*,                                      
+				            <Import-Package>
+				                 org.slf4j;provider=paxlogging;resolution:=optional,
+				                 *;resolution:=optional
+				            </Import-Package>
+				            <Export-Package>
+				                  net.jperf,		                                                   
 		                          net.jperf.*
-				           </Export-Package>
-				           <Private-Package>		              
-				                 net.jperf.helpers.*       
-				           </Private-Package>      
+				           </Export-Package>     
 				          </instructions>
-		        		</configuration> 
+		        	  </configuration> 
 				    </execution>
 				    <execution>
 				      <id>slf4jAspects</id>
@@ -397,8 +397,11 @@
 				      <configuration>
 				          <classifier>slf4jonly</classifier>
 				          <instructions>
-				            <Import-Package>org.slf4j;provider=paxlogging;resolution:=mandatory,
-				            *;resolution:=optional,</Import-Package>
+				            <Bundle-Name>JPerf slf4j</Bundle-Name>
+				            <Import-Package>
+				                 org.slf4j;provider=paxlogging;resolution:=mandatory,
+				                 *;resolution:=optional
+				            </Import-Package>
 				            <Export-Package>		              
 				                 !net.jperf.log4j.*,
 		                         !net.jperf.javalog.*,
@@ -424,8 +427,11 @@
 				      <configuration>
 				          <classifier>log4jonly</classifier>
 				          <instructions>
-				            <Import-Package>org.apache.log4j.*;resolution:=mandatory,
-				            *;resolution:=optional,</Import-Package>
+				            <Bundle-Name>JPerf log4j</Bundle-Name>
+				            <Import-Package>
+				                 org.apache.log4j.*;resolution:=mandatory,
+				                 *;resolution:=optional
+				            </Import-Package>
 				            <Export-Package>		              
 				                 !net.jperf.slf4j.*,
 		                         !net.jperf.javalog.*,
@@ -451,8 +457,10 @@
 				      <configuration>
 				          <classifier>javalogonly</classifier>
 				          <instructions>
-				            <Import-Package>java.util.logging.*;resolution:=mandatory,
-				            *;resolution:=optional,</Import-Package>
+				            <Bundle-Name>JPerf javalog</Bundle-Name>
+				            <Import-Package>
+				            	 *;resolution:=optional
+				            </Import-Package>
 				            <Export-Package>		              
 				                 !net.jperf.log4j.*,
 		                         !net.jperf.slf4j.*,
@@ -478,8 +486,11 @@
 				      <configuration>
 				          <classifier>commonslogjonly</classifier>
 				          <instructions>
-				            <Import-Package>org.apache.commons.logging.*;resolution:=mandatory,
-				            *;resolution:=optional,</Import-Package>
+				            <Bundle-Name>JPerf commonslog</Bundle-Name>
+				            <Import-Package>
+				                 org.apache.commons.logging.*;resolution:=mandatory,
+				                 *;resolution:=optional
+				            </Import-Package>
 				            <Export-Package>		              
 				                 !net.jperf.log4j.*,
 		                         !net.jperf.javalog.*,
@@ -505,8 +516,11 @@
 				      <configuration>
 				          <classifier>logbackonly</classifier>
 				          <instructions>
-				            <Import-Package>ch.qos.logback.*;resolution:=mandatory,
-				            *;resolution:=optional,</Import-Package>
+				            <Bundle-Name>JPerf logback</Bundle-Name>
+				            <Import-Package>
+				            	 ch.qos.logback.*;resolution:=mandatory,
+				            	 *;resolution:=optional
+				            </Import-Package>
 				            <Export-Package>		              
 				                 !net.jperf.log4j.*,
 		                         !net.jperf.javalog.*,
