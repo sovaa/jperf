@@ -1,7 +1,9 @@
-jperf
+JPerf
 =====
 
 [![Build Status](https://travis-ci.org/sovaa/jperf.svg?branch=master)](https://travis-ci.org/sovaa/jperf)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.jperf/jperf/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.jperf/jperf/)
+[![License](https://img.shields.io/badge/license-Apache 2-blue.svg?style=flat)](https://github.com/sovaa/jperf/blob/master/LICENSE.txt)
 
 Performance Monitoring and Statistics for Java Code
 
