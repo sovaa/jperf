@@ -53,15 +53,15 @@
         <url>https://github.com/sovaa/jperf</url>
         <connection>scm:git:git://github.com/sovaa/jperf.git</connection>
         <developerConnection>scm:git:git@github.com:sovaa/jperf.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <!-- this property is used by the apt files in src/site/apt -->
         <currentProductionVersion>1.0.3</currentProductionVersion>
         <currentSnapshotVersion>1.0.4-SNAPSHOT</currentSnapshotVersion>
         <git.executable>git</git.executable>
-        <aspectjVersion>1.6.11</aspectjVersion>
+        <aspectjVersion>1.8.10</aspectjVersion>
         <!-- when building with java 8 -->
         <additionalparam>-Xdoclint:none</additionalparam>
         <github.global.server>github.sovaa.jperf.ghpages</github.global.server>
@@ -72,7 +72,7 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.14</version>
+            <version>1.2.17</version>
             <scope>compile</scope>
             <optional>true</optional>
         </dependency>
@@ -81,7 +81,7 @@
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
-            <version>1.0.3</version>
+            <version>1.2</version>
             <scope>compile</scope>
             <optional>true</optional>
         </dependency>
@@ -107,8 +107,8 @@
         <!-- If you use the graphing servlets of jperf, the servlet package should be provided by your container -->
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.4</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
 
