@@ -152,7 +152,10 @@ public abstract class AbstractGraphingServlet extends HttpServlet {
 
         Map<String, StatisticsChartGenerator> retVal = new LinkedHashMap<String, StatisticsChartGenerator>();
         for (String graphName : graphsToDisplay) {
-            retVal.put(graphName, getGraphByName(graphName));
+            StatisticsChartGenerator chartGenerator = getGraphByName(graphName);
+            if (chartGenerator != null) {
+                retVal.put(graphName, chartGenerator);
+            }
         }
         return retVal;
     }
